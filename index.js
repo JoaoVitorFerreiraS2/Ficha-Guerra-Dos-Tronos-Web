@@ -1,4 +1,7 @@
 atrAtletismo = document.getElementById('atletismo')
+atrAtletismo.value = 2
+
+
 rolarDados = document.getElementById('rolar')
 rolagemResposta = document.getElementById('h1')
 
@@ -17,7 +20,7 @@ function roll(qtdDados){
         soma += listaDados[n]
     }
 
-    rolagemResposta.innerHTML = soma
+    rolagemResposta.innerHTML = (`Jogue ${atrAtletismo.value}D6`)
 }
 
 class ficha{
