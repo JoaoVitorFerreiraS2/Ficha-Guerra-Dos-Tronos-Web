@@ -7,7 +7,7 @@ body{
     background-color: #f4efe6;
     border: 5px solid #8b5e3c;
     border-radius: 50px 90px;
-    height: 100vh;
+    height: 120vh;
 }
 
 header{
@@ -44,10 +44,9 @@ header img{
     display: flex;
     flex-direction: column;
     margin-top: 5%;
-    height: 30vh;
+    height: 40vh;
     flex-wrap: wrap;
     padding: 10px;
-    border: 1px solid black;
 }
 
 .habilidades button{

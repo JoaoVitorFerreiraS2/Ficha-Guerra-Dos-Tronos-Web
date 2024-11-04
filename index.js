@@ -1,5 +1,7 @@
+valorPadrao = 2
+
 atrAtletismo = document.getElementById('atletismo')
-atrAtletismo.value = 2
+atrAtletismo.value = valorPadrao
 
 
 rolarDados = document.getElementById('rolar')
