@@ -1,0 +1,90 @@
+{
+  "habilidades": {
+    "Agilidade": {
+      "padValor": 2,
+      "especialidades": ["Acrobacia", "Contorcionismo", "Equilíbrio", "Esquiva", "Rapidez"]
+    },
+    "Astúcia": {
+      "padValor": 2,
+      "especialidades": ["Decifrar", "Lógica", "Memória"]
+    },
+    "Atletismo": {
+      "padValor": 2,
+      "especialidades": ["Arremessar", "Correr", "Escalar", "Força", "Nadar", "Saltar"]
+    },
+    "Conhecimento": {
+      "padValor": 2,
+      "especialidades": ["Educação", "Manha", "Pesquisa"]
+    },
+    "Cura": {
+      "padValor": 2,
+      "especialidades": ["Diagnóstico", "Tratar Doença", "Tratar Ferimento"]
+    },
+    "Enganação": {
+      "padValor": 2,
+      "especialidades": ["Atuar", "Blefar", "Disfarce", "Trapacear"]
+    },
+    "Furtividade": {
+      "padValor": 2,
+      "especialidades": ["Esgueirar-se", "Mesclar-se"]
+    },
+    "Guerra": {
+      "padValor": 2,
+      "especialidades": ["Comandar", "Estratégia", "Tática"]
+    },
+    "Idioma": {
+      "padValor": 2,
+      "especialidades": []
+    },
+    "Ladinagem": {
+      "padValor": 2,
+      "especialidades": ["Arrombar", "Furtar", "Prestidigitação"]
+    },
+    "Lidar com Animais": {
+      "padValor": 2,
+      "especialidades": ["Cavalgar", "Conduzir", "Encantar", "Treinar"]
+    },
+    "Luta": {
+      "padValor": 2,
+      "especialidades": [
+        "Armas de Contusão",
+        "Armas de Haste",
+        "Briga",
+        "Escudos",
+        "Esgrima",
+        "Lâminas Curtas",
+        "Lâminas Longas",
+        "Lanças",
+        "Machados"
+      ]
+    },
+    "Percepção": {
+      "padValor": 2,
+      "especialidades": ["Empatia", "Notar"]
+    },
+    "Persuasão": {
+      "padValor": 2,
+      "especialidades": ["Barganha", "Charme", "Convencer", "Incitar", "Intimidar", "Provocar", "Seduzir"]
+    },
+    "Pontaria": {
+      "padValor": 2,
+      "especialidades": ["Arcos", "Armas Arremessadas", "Armas de Cerco", "Bestas"]
+    },
+    "Sobrevivência": {
+      "padValor": 2,
+      "especialidades": ["Caçar", "Coletar", "Orientar-se", "Rastrear"]
+    },
+    "Status": {
+      "padValor": 2,
+      "especialidades": ["Administração", "Criação", "Reputação", "Torneios"]
+    },
+    "Vigor": {
+      "padValor": 2,
+      "especialidades": ["Resistência", "Vitalidade"]
+    },
+    "Vontade": {
+      "padValor": 2,
+      "especialidades": ["Coordenar", "Coragem", "Dedicação"]
+    }
+  }
+}

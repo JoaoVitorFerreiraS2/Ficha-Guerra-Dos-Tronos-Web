@@ -4,118 +4,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guerra dos Tronos</title>
+    <title>Ficha Guerra dos Tronos</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <header>
-        <img src="" alt="Imagem do Personagem">
-        <div class="header_complementos">
-            <input type="text" name="nome" id="nome" placeholder="Digite seu nome">
-            <input type="text" name="idade" id="idade" placeholder="Digite sua idade">
-            <input type="text" name="sexo" id="sexo" placeholder="Digite seu sexo">
-        </div>
-    </header>
-    <div class="habilidades">
-        <div class="habilidade_son">
-            <button id="rolar" type="button" onclick="rolar()"><label for="agilidade">AGILIDADE</label></button>
-            <input type="number" name="agilidade" id="agilidade">
-        </div>
 
-        <div class="habilidade_son">
-            <button id="rolar" type="button" onclick="rolar()"><label for="astúcia">ASTÚCIA</label></button>
-            <input type="number" name="astúcia" id="astúcia">
-        </div>
+    <section class="ficha">
+        <header>
+            <div class="header_sun">
+                <label for="nome">Nome</label>
+                <input type="text" name="nome" id="nomeP" placeholder="Ex: Jhon Snow">
+            </div>
 
-        <div class="habilidade_son">
-            <button id="rolar" type="button" onclick="rolar()"><label for="atletismo">ATLETISMO</label></button>
-            <input type="number" name="atletismo" id="atletismo">
-        </div>
+            <div class="header_sun">
+                <label for="casa">Casa</label>
+                <input type="text" name="casa" id="casaP" placeholder="Ex: Stark">
+            </div>
 
-        <div class="habilidade_son">
-            <button id="rolar" type="button" onclick="rolar()"><label for="conhecimento">CONHECIMENTO</label></button>
-            <input type="number" name="conhecimento" id="conhecimento">
-        </div>
+            <div class="header_sun">
+                <label for="idade">Idade</label>
+                <input type="text" name="idade" id="idadeP" placeholder="Ex: 16">
+            </div>
+            <div class="header_sun">
+                <label for="sexo">Sexo</label>
+                <input list="sexos" name="sexo" id="sexo" placeholder="Ex: Masculino">
+                <datalist id="sexos">
+                    <option value="Masculino">
+                    <option value="Feminino">
+                </datalist>
+            </div>
+        </header>
 
-        <div class="habilidade_son">
-            <button id="rolar" type="button" onclick="rolar()"><label for="cura">CURA</label></button>
-            <input type="number" name="cura" id="cura">
-        </div>
+        <section class="area_ficha">
+            <section class="notacoes_de_atributos">
+                <div class="atributos_father">
+                </div>
+            </section>
 
-        <div class="habilidade_son">
-            <button id="rolar" type="button" onclick="rolar()"><label for="enganacao">ENGANAÇÃO</label></button>
-            <input type="number" name="enganacao" id="enganacao">
-        </div>
+            <section class="notacoes_corporais">
+                <div class="intriga">
+                    <h1>INTRIGA</h1>
+                    <div class="intriga_part1">
+                        <div>
+                            <h2>Defesa Em Intriga</h2>
+                            <input type="text" disabled>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </section>
+    </section>
 
-        <div class="habilidade_son">
-            <button id="rolar" type="button" onclick="rolar()"><label for="furtividade">FURTIVIDADE</label></button>
-            <input type="number" name="furtividade" id="furtividade">
-        </div>
 
-        <div class="habilidade_son">
-            <button id="rolar" type="button" onclick="rolar()"><label for="guerra">GUERRA</label></button>
-            <input type="number" name="guerra" id="guerra">
-        </div>
-
-        <div class="habilidade_son">
-            <button id="rolar" type="button" onclick="rolar()"><label for="idioma">IDIOMA</label></button>
-            <input type="number" name="idioma" id="idioma">
-        </div>
-
-        <div class="habilidade_son">
-            <button id="rolar" type="button" onclick="rolar()"><label for="ladinagem">LADINAGEM</label></button>
-            <input type="number" name="ladinagem" id="ladinagem">
-        </div>
-
-        <div class="habilidade_son">
-            <button id="rolar" type="button" onclick="rolar()"><label for="lidarComAnimais">LIDAR COM ANIMAIS</label></button>
-            <input type="number" name="lidarComAnimais" id="lidarComAnimais">
-        </div>
-
-        <div class="habilidade_son">
-            <button id="rolar" type="button" onclick="rolar()"><label for="luta">LUTA</label></button>
-            <input type="number" name="luta" id="luta">
-        </div>
-
-        <div class="habilidade_son">
-            <button id="rolar" type="button" onclick="rolar()"><label for="percepcao">PERCEPÇÃO</label></button>
-            <input type="number" name="percepcao" id="percepcao">
-        </div>
-
-        <div class="habilidade_son">
-            <button id="rolar" type="button" onclick="rolar()"><label for="persuacao">PERÇUAÇÃO</label></button>
-            <input type="number" name="percuacao" id="percuacao">
-        </div>
-
-        <div class="habilidade_son">
-            <button id="rolar" type="button" onclick="rolar()"><label for="pontaria">PONTARIA</label></button>
-            <input type="number" name="pontaria" id="pontaria">
-        </div>
-
-        <div class="habilidade_son">
-            <button id="rolar" type="button" onclick="rolar()"><label for="sobrevivencia">SOBREVIVÊNCIA</label></button>
-            <input type="number" name="sobrevivencia" id="sobrevivencia">
-        </div>
-
-        <div class="habilidade_son">
-            <button id="rolar" type="button" onclick="rolar()"><label for="status">IDIOMA</label></button>
-            <input type="number" name="status" id="status">
-        </div>
-
-        <div class="habilidade_son">
-            <button id="rolar" type="button" onclick="rolar()"><label for="vigor">VIGOR</label></button>
-            <input type="number" name="vigor" id="vigor">
-        </div>
-        
-        <div class="habilidade_son">
-            <button id="rolar" type="button" onclick="rolar()"><label for="vontade">VONTADE</label></button>
-            <input type="number" name="vontade" id="vontade">
-        </div>
-    </div>
-    <h1 id="h1"></h1>
+    <script src="index.js"></script>
 </body>
 
 </html>
-
-<script src="index.js"></script>

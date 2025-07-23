@@ -1,78 +1,156 @@
-input[type=number]::-webkit-inner-spin-button { 
-    -webkit-appearance: none;
-    
+@import url('https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
 }
 
-body{
-    background-color: #f4efe6;
-    border: 5px solid #8b5e3c;
-    border-radius: 50px 90px;
-    height: 120vh;
-}
-
-header{
+body {
+    background-color: black;
     display: flex;
     width: 100%;
-    flex-direction: row;  
-    height: 50vh; 
+    height: 100%;
+    justify-content: center;
 }
 
-header img{
-    border: 2px solid #8b5e3c;
-    width: 300px;
-    height: 300px;
-    border-radius: 300px;
-    margin-bottom: 10%;
-    margin-right: 5%;
+.ficha {
+    background-color: rgb(189, 189, 189);
+    display: flex;
+    border: 2px solid rgb(199, 93, 1);
+    height: 100%;
+    width: 80%;
+    flex-direction: column;
 }
 
-.header_complementos{
+.area_ficha{
     display: flex;
     width: 100%;
+}
+
+
+header {
+    display: flex;
+    border-bottom: 1px solid black;
+    height: 18vh;
+    padding: 1vw;
+    justify-content: space-between;
     flex-wrap: wrap;
-    justify-content: space-around;
-    margin: 1%;
+}
+label {
+    font-weight: bold;
+    font-family: "MedievalSharp", cursive;
+    font-weight: bold;
+    font-style: normal;
+    color: white;
+    text-shadow: 1px 1px 20px black;
+    background-color: rgb(101, 0, 0);
+    padding: 1vh;
+    border-radius: 10px;
+    height: 4vh;
+}
+
+input {
+    width: 20vw;
+    height: 5vh;
+    font-size: 3vh;
+    padding-left: 5px;
+    font-family: "MedievalSharp", cursive
+}
+
+.notacoes_de_atributos{
+    width: 100%;
+    border: 1px solid black;
+}
+
+.atributos_father{
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+}
+
+.atributos{
+    display: flex;
+}
+
+.atributos button:hover{
+    transition: 0.5s;
+    cursor: pointer;
+    background-color: beige;
+}
+
+.graduacoes, .habilidades, .especialidades{
+    display: flex;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: row;
     
 }
 
-.header_complementos input{
-    height: 12%;
-    border-radius: 20px;
+.graduacoes{
+    width: 10%;
+}
+.graduacoes input{
+    width: 4vw;
+    text-align: center;
+    font-weight: bold;
 }
 
 .habilidades{
-    display: flex;
-    flex-direction: column;
-    margin-top: 5%;
-    height: 40vh;
-    flex-wrap: wrap;
-    padding: 10px;
+    width: 30%;
 }
 
 .habilidades button{
-    height: 5vh;
-    width: 10vw;
-    border-radius: 5px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-
-
-.habilidades input{
-    border-radius: 5px;
-    margin-left: 1%;
-    height: 4.3vh;
-    width: 10vw;
-    font-weight: bold;
+    width: 100%;
+    height: 100%;
     text-align: center;
-    font-size: 5vh;
+    font-weight: bold;
 }
 
-.habilidade_son{
-    margin-top: 1%;
+.especialidades{
     display: flex;
-    width: 25%;
-    gap: 10px;
+    width: 60%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: left;
+}
+
+.especialidades ul{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+}
+
+.especialidades ul li{
+    border: 1px solid black;
+    background-color: rgba(211, 211, 211, 0.527);
+}
+
+.especialidades label{
+    font-size: 3vh;
+    background: none;
+    color: black;
+}
+
+.especialidades input{
+    width: 2vw;
+}
+
+.especialida_unica{
+    display: flex;
     align-items: center;
+}
+
+#idiomaInput{
+    width: 100%;
+}
+
+.notacoes_corporais{
+    display: flex;
+    width: 50%;
+    border: 2px solid red;
 }
