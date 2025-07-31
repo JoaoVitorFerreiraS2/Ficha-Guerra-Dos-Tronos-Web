@@ -1,0 +1,181 @@
+// js/index.js
+import {
+  valorPadrao,
+  tabelaCustoGrad,
+  getCustoGrad,
+  getCustoEsp, 
+  adicionarValorPad,
+  xpIdadeInicial
+} from './habilidades/habilidades.js';
+
+import {
+  aleatorizarPersonalidade
+} from './historico/personalida-aleatorizar.js';
+
+
+
+// Pega elementos do HTML
+// Abas
+const tabButtons = document.querySelectorAll('.tab-button');
+const tabContents = document.querySelectorAll('.tab-content');
+
+tabButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    tabButtons.forEach(btn => btn.classList.remove('active'));
+    tabContents.forEach(content => content.classList.remove('active'));
+
+    button.classList.add('active');
+    document.getElementById(button.dataset.tab).classList.add('active');
+
+    console.log(`Aba ativada: ${button.dataset.tab}`);
+    if (button.dataset.tab === 'historico') {
+      initFicha.disabled = true;
+    }
+    else if (button.dataset.tab === 'habilidades') {
+      initFicha.disabled = false;
+    }
+  });
+})
+
+window.addEventListener('DOMContentLoaded', () => {
+  inputsGrad.forEach(input => {
+    if (input.value === '') {
+      input.disabled = true;
+    }
+  });
+});
+
+
+
+// Outros
+const initFicha = document.querySelector('#button_iniciar');
+const inputsGrad = document.querySelectorAll('.graduacaoPad');
+const idadeInput = document.querySelector('#idadeP');
+const salvarBtn = document.querySelector('#salvarBtn');
+const aleatorizarPersonalidadeBtn = document.querySelector('#aleatorizar-personalidade');
+let xpInputGrad = document.querySelector('#xp_grad');
+let xpInputEsp = document.querySelector('#xp_esp');
+const inputEsp = document.querySelectorAll('.especialida_unica');
+
+const valoresAnterioresGrad = new Map();
+const valoresAnterioresEsp = new Map();
+
+
+function podeIniciar() {
+  if (idadeInput.value === '') {
+    alert('Preencha a idade');
+    return false;
+  }
+  else if (idadeInput.value < 0 || idadeInput.value >= 131) {
+    alert('Idade deve ser maior que 0 e menor que 131');
+    return false;
+  }
+  else {
+    adicionarValorPad(inputsGrad, valorPadrao);
+    const idadeIdentificador = xpIdadeInicial(parseInt(idadeInput.value), xpInputGrad, xpInputEsp);
+    console.log('Idade Identificador:', idadeIdentificador);
+
+    initFicha.innerHTML = 'Reiniciar Ficha';
+    initFicha.style.color = 'red';
+    initFicha.style.fontWeight = 'bold';
+    inputsGrad.forEach(input => {
+      input.disabled = false;
+    });
+  }
+
+}
+
+initFicha.addEventListener('click', () => {
+  podeIniciar();
+});
+
+salvarBtn.addEventListener('click', () => {
+  alert('Função de salvar ainda não implementada');
+});
+
+
+// Inputs de graduação
+inputsGrad.forEach(input => {
+  valoresAnterioresGrad.set(input, 2);
+
+  input.addEventListener('input', (event) => {
+
+    if (event.target.value === '') {
+
+    }
+    else if (event.target.value >= 8 || event.target.value <= 0) {
+      alert('Valor inválido. Deve ser entre 1 e 7.');
+      event.target.value = valoresAnterioresGrad.get(input);
+      return;
+
+    }
+    else {
+      const novo = Number(event.target.value);
+      const anterior = valoresAnterioresGrad.get(input);
+      const custoNovo = getCustoGrad(novo);
+      const custoAnterior = getCustoGrad(anterior);
+
+      const diferenca = custoNovo - custoAnterior;
+
+      xpInputGrad.value = Number(xpInputGrad.value) - diferenca;
+
+      if (xpInputGrad.value < 0) {
+        alert('Experiência insuficiente. Valor revertido.');
+        event.target.value = valoresAnterioresGrad.get(input);
+        xpInputGrad.value = Number(xpInputGrad.value) + diferenca;
+        return;
+      }
+
+      valoresAnterioresGrad.set(input, novo);
+      
+    }
+
+  });
+});
+
+// Inputs de especialidade
+inputEsp.forEach(input => {
+  valoresAnterioresEsp.set(input, 0);
+
+  input.addEventListener('input', (event) => {
+    if (event.target.value === '') {
+      // Não faz nada se o campo estiver vazio
+    } else if(event.target.value < 0){
+      event.target.value = valoresAnterioresEsp.get(input);
+    } else {
+      const novo = Number(event.target.value);
+      const anterior = valoresAnterioresEsp.get(input);
+      const custoNovo = getCustoEsp(novo);
+      const custoAnterior = getCustoEsp(anterior);
+
+      const diferenca = custoNovo - custoAnterior;
+
+      xpInputEsp.value = Number(xpInputEsp.value) - diferenca;
+
+      if (xpInputEsp.value < 0) {
+        alert('Experiência insuficiente. Valor revertido.');
+        event.target.value = valoresAnterioresEsp.get(input);
+        xpInputEsp.value = Number(xpInputEsp.value) + diferenca;
+        return;
+      }
+
+      valoresAnterioresEsp.set(input, novo);
+    }
+  });
+});
+
+// Historico
+
+aleatorizarPersonalidadeBtn.addEventListener('click', () => {
+  const personalidade = aleatorizarPersonalidade();
+  const objetivoInput = document.querySelector('#objetivoHi');
+  const motivacaoInput = document.querySelector('#motivacaoHi');
+  const virtudeInput = document.querySelector('#virtudeHi');
+  const vicioInput = document.querySelector('#vicioHi');
+
+  objetivoInput.placeholder = `Ex: ${personalidade.objetivo}`;
+  motivacaoInput.placeholder = `Ex: ${personalidade.motivacao}`;
+  virtudeInput.placeholder = `Ex: ${personalidade.virtude}`;
+  vicioInput.placeholder = `Ex: ${personalidade.vicio}`;
+
+})

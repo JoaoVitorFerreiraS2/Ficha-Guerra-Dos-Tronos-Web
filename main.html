@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ficha Guerra dos Tronos</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-    <div class="popUpFather"></div>
-
+    <div class="popUpFather"></div> <!-- Ainda a ser criado -->
     <section class="ficha">
         <header>
             <div class="header_sun">
@@ -26,644 +26,774 @@
 
             <div class="header_sun">
                 <label for="idade">Idade</label>
-                <input type="text" name="idade" id="idadeP" placeholder="Ex: 16">
+                <input type="number" name="idade" id="idadeP" placeholder="Ex: 16">
             </div>
             <div class="header_sun">
-                <label for="sexo">Sexo</label>
-                <input list="sexos" name="sexo" id="sexo" placeholder="Ex: Masculino">
-                <datalist id="sexos">
-                    <option value="Masculino">
-                    <option value="Feminino">
-                </datalist>
+                <label for="xp_grad">XP_Graduação</label>
+                <input type="number" name="xp_grad" id="xp_grad" placeholder="Ex: 0" disabled>
             </div>
-
             <div class="header_sun">
-                <label for="xp">XP</label>
-                <input type="text" name="xp" id="xpP" placeholder="Ex: 0" disabled>
+                <label for="xp_Hab">XP_Especialidade</label>
+                <input type="number" name="xp_esp" id="xp_esp" placeholder="Ex: 0" disabled>
             </div>
 
             <div class="hearder_sun">
-                <button class="button_iniciar">Iniciar Ficha</button>
+                <button class="button_header" id="button_iniciar">Iniciar Ficha</button>
+            </div>
+
+            <div class="hearder_sun">
+                <button class="button_header" id="salvarBtn">Salvar Dados</button>
             </div>
 
 
         </header>
 
+        <div class="tabs">
+            <div class="tab-button active" data-tab="habilidades">Habilidades
+            </div>
+            <div class="tab-button" data-tab="historico">Histórico
+            </div>
+            <div class="tab-button" data-tab="teste3">teste 3
+            </div>
+        </div>
+
         <section class="area_ficha">
-            <section class="notacoes_de_atributos">
-                <div class="atributos_father">
-                    <div class="graduacao_father">
-                        <!-- Agilidade -->
-                        <div class="atributos">
-                            <div class="graduacoes">
-                                <input type="text" name="Agilidade" id="agilidadeGrad" class="graduacaoPad">
+            <div id="habilidades" class="tab-content active">
+                <section class="notacoes_de_atributos">
+                    <div class="atributos_father">
+                        <div class="graduacao_father">
+                            <!-- Agilidade -->
+                            <div class="atributos">
+                                <div class="graduacoes">
+                                    <input type="number" name="Agilidade" id="agilidadeGrad" class="graduacaoPad">
+                                </div>
+                                <div class="habilidades">
+                                    <button id="agilidadeBotao" class="botaoDado">Agilidade</button>
+                                </div>
+                                <div class="especialidades">
+                                    <ul>
+                                        <li>
+                                            <div class="especialida_unica"><input type="number" id="acrobaciaEsp"
+                                                    name="Agilidade" value="0"><label
+                                                    for="acrobaciaEsp">Acrobacia</label>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="especialida_unica"><input type="number" id="contorcionismoEsp"
+                                                    name="Agilidade" value="0"><label
+                                                    for="contorcionismoEsp">Contorcionismo</label></div>
+                                        </li>
+                                        <li>
+                                            <div class="especialida_unica"><input type="number" id="equilibrioEsp"
+                                                    name="Agilidade" value="0"><label
+                                                    for="equilibrioEsp">Equilíbrio</label>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="especialida_unica"><input type="number" id="esquivaEsp"
+                                                    name="Agilidade" value="0"><label for="esquivaEsp">Esquiva</label>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="especialida_unica"><input type="number" id="rapidezEsp"
+                                                    name="Agilidade" value="0"><label for="rapidezEsp">Rapidez</label>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
-                            <div class="habilidades">
-                                <button id="agilidadeBotao" class="botaoDado">Agilidade</button>
-                            </div>
-                            <div class="especialidades">
-                                <ul>
-                                    <li>
-                                        <div class="especialida_unica"><input type="text" id="acrobaciaEsp"
-                                                name="Agilidade" value="0"><label for="acrobaciaEsp">Acrobacia</label>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="especialida_unica"><input type="text" id="contorcionismoEsp"
-                                                name="Agilidade" value="0"><label
-                                                for="contorcionismoEsp">Contorcionismo</label></div>
-                                    </li>
-                                    <li>
-                                        <div class="especialida_unica"><input type="text" id="equilibrioEsp"
-                                                name="Agilidade" value="0"><label for="equilibrioEsp">Equilíbrio</label>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="especialida_unica"><input type="text" id="esquivaEsp"
-                                                name="Agilidade" value="0"><label for="esquivaEsp">Esquiva</label></div>
-                                    </li>
-                                    <li>
-                                        <div class="especialida_unica"><input type="text" id="rapidezEsp"
-                                                name="Agilidade" value="0"><label for="rapidezEsp">Rapidez</label></div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
 
-                        <!-- Astúcia -->
-                        <div class="atributos">
-                            <div class="graduacoes">
-                                <input type="text" name="Astúcia" id="astuciaGrad" class="graduacaoPad">
+                            <!-- Astúcia -->
+                            <div class="atributos">
+                                <div class="graduacoes">
+                                    <input type="number" name="Astúcia" id="astuciaGrad" class="graduacaoPad">
+                                </div>
+                                <div class="habilidades">
+                                    <button id="astuciaBotao" class="botaoDado">Astúcia</button>
+                                </div>
+                                <div class="especialidades">
+                                    <ul>
+                                        <li>
+                                            <div class="especialida_unica"><input type="number" id="decifrarEsp"
+                                                    name="Astúcia" value="0"><label for="decifrarEsp">Decifrar</label>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="especialida_unica"><input type="number" id="logicaEsp"
+                                                    name="Astúcia" value="0"><label for="logicaEsp">Lógica</label></div>
+                                        </li>
+                                        <li>
+                                            <div class="especialida_unica"><input type="number" id="memoriaEsp"
+                                                    name="Astúcia" value="0"><label for="memoriaEsp">Memória</label>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
-                            <div class="habilidades">
-                                <button id="astuciaBotao" class="botaoDado">Astúcia</button>
-                            </div>
-                            <div class="especialidades">
-                                <ul>
-                                    <li>
-                                        <div class="especialida_unica"><input type="text" id="decifrarEsp"
-                                                name="Astúcia" value="0"><label for="decifrarEsp">Decifrar</label></div>
-                                    </li>
-                                    <li>
-                                        <div class="especialida_unica"><input type="text" id="logicaEsp" name="Astúcia"
-                                                value="0"><label for="logicaEsp">Lógica</label></div>
-                                    </li>
-                                    <li>
-                                        <div class="especialida_unica"><input type="text" id="memoriaEsp" name="Astúcia"
-                                                value="0"><label for="memoriaEsp">Memória</label></div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
 
-                        <!-- Atletismo -->
-                        <div class="atributos">
-                            <div class="graduacoes">
-                                <input type="text" name="Atletismo" id="atletismoGrad" class="graduacaoPad">
+                            <!-- Atletismo -->
+                            <div class="atributos">
+                                <div class="graduacoes">
+                                    <input type="number" name="Atletismo" id="atletismoGrad" class="graduacaoPad">
+                                </div>
+                                <div class="habilidades">
+                                    <button id="atletismoBotao" class="botaoDado">Atletismo</button>
+                                </div>
+                                <div class="especialidades">
+                                    <ul>
+                                        <li>
+                                            <div class="especialida_unica"><input type="number" id="arremessarEsp"
+                                                    name="Atletismo" value="0"><label
+                                                    for="arremessarEsp">Arremessar</label>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="especialida_unica"><input type="number" id="correrEsp"
+                                                    name="Atletismo" value="0"><label for="correrEsp">Correr</label>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="especialida_unica"><input type="number" id="escalarEsp"
+                                                    name="Atletismo" value="0"><label for="escalarEsp">Escalar</label>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="especialida_unica"><input type="number" id="forcaEsp"
+                                                    name="Atletismo" value="0"><label for="forcaEsp">Força</label></div>
+                                        </li>
+                                        <li>
+                                            <div class="especialida_unica"><input type="number" id="nadarEsp"
+                                                    name="Atletismo" value="0"><label for="nadarEsp">Nadar</label></div>
+                                        </li>
+                                        <li>
+                                            <div class="especialida_unica"><input type="number" id="saltarEsp"
+                                                    name="Atletismo" value="0"><label for="saltarEsp">Saltar</label>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
-                            <div class="habilidades">
-                                <button id="atletismoBotao" class="botaoDado">Atletismo</button>
-                            </div>
-                            <div class="especialidades">
-                                <ul>
-                                    <li>
-                                        <div class="especialida_unica"><input type="text" id="arremessarEsp"
-                                                name="Atletismo" value="0"><label for="arremessarEsp">Arremessar</label>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="especialida_unica"><input type="text" id="correrEsp"
-                                                name="Atletismo" value="0"><label for="correrEsp">Correr</label></div>
-                                    </li>
-                                    <li>
-                                        <div class="especialida_unica"><input type="text" id="escalarEsp"
-                                                name="Atletismo" value="0"><label for="escalarEsp">Escalar</label></div>
-                                    </li>
-                                    <li>
-                                        <div class="especialida_unica"><input type="text" id="forcaEsp" name="Atletismo"
-                                                value="0"><label for="forcaEsp">Força</label></div>
-                                    </li>
-                                    <li>
-                                        <div class="especialida_unica"><input type="text" id="nadarEsp" name="Atletismo"
-                                                value="0"><label for="nadarEsp">Nadar</label></div>
-                                    </li>
-                                    <li>
-                                        <div class="especialida_unica"><input type="text" id="saltarEsp"
-                                                name="Atletismo" value="0"><label for="saltarEsp">Saltar</label></div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
 
-                        <!-- Conhecimento -->
-                        <div class="atributos">
-                            <div class="graduacoes">
-                                <input type="text" name="Conhecimento" id="conhecimentoGrad" class="graduacaoPad">
+                            <!-- Conhecimento -->
+                            <div class="atributos">
+                                <div class="graduacoes">
+                                    <input type="number" name="Conhecimento" id="conhecimentoGrad" class="graduacaoPad">
+                                </div>
+                                <div class="habilidades">
+                                    <button id="conhecimentoBotao" class="botaoDado">Conhecimento</button>
+                                </div>
+                                <div class="especialidades">
+                                    <ul>
+                                        <li>
+                                            <div class="especialida_unica"><input type="number" id="educacaoEsp"
+                                                    name="Conhecimento" value="0"><label
+                                                    for="educacaoEsp">Educação</label>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="especialida_unica"><input type="number" id="manhaEsp"
+                                                    name="Conhecimento" value="0"><label for="manhaEsp">Manha</label>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="especialida_unica"><input type="number" id="pesquisaEsp"
+                                                    name="Conhecimento" value="0"><label
+                                                    for="pesquisaEsp">Pesquisa</label>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
-                            <div class="habilidades">
-                                <button id="conhecimentoBotao" class="botaoDado">Conhecimento</button>
-                            </div>
-                            <div class="especialidades">
-                                <ul>
-                                    <li>
-                                        <div class="especialida_unica"><input type="text" id="educacaoEsp"
-                                                name="Conhecimento" value="0"><label for="educacaoEsp">Educação</label>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="especialida_unica"><input type="text" id="manhaEsp"
-                                                name="Conhecimento" value="0"><label for="manhaEsp">Manha</label></div>
-                                    </li>
-                                    <li>
-                                        <div class="especialida_unica"><input type="text" id="pesquisaEsp"
-                                                name="Conhecimento" value="0"><label for="pesquisaEsp">Pesquisa</label>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
 
-                        <!-- Cura -->
-                        <div class="atributos">
-                            <div class="graduacoes">
-                                <input type="text" name="Cura" id="curaGrad" class="graduacaoPad">
+                            <!-- Cura -->
+                            <div class="atributos">
+                                <div class="graduacoes">
+                                    <input type="number" name="Cura" id="curaGrad" class="graduacaoPad">
+                                </div>
+                                <div class="habilidades">
+                                    <button id="curaBotao" class="botaoDado">Cura</button>
+                                </div>
+                                <div class="especialidades">
+                                    <ul>
+                                        <li>
+                                            <div class="especialida_unica"><input type="number" id="diagnosticoEsp"
+                                                    name="Cura" value="0"><label
+                                                    for="diagnosticoEsp">Diagnóstico</label>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="especialida_unica"><input type="number" id="tratarDoencaEsp"
+                                                    name="Cura" value="0"><label for="tratarDoencaEsp">Tratar
+                                                    Doença</label>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="especialida_unica"><input type="number" id="tratarFerimentoEsp"
+                                                    name="Cura" value="0"><label for="tratarFerimentoEsp">Tratar
+                                                    Ferimento</label></div>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
-                            <div class="habilidades">
-                                <button id="curaBotao" class="botaoDado">Cura</button>
+                            <!-- Enganação -->
+                            <div class="atributos">
+                                <div class="graduacoes">
+                                    <input type="number" name="Enganação" id="enganacaoGrad" class="graduacaoPad">
+                                </div>
+                                <div class="habilidades">
+                                    <button id="enganacaoBotao" class="botaoDado">Enganação</button>
+                                </div>
+                                <div class="especialidades">
+                                    <ul>
+                                        <li>
+                                            <div class="especialida_unica"><input type="number" id="atuarEsp"
+                                                    name="Enganação" value="0"><label for="atuarEsp">Atuar</label></div>
+                                        </li>
+                                        <li>
+                                            <div class="especialida_unica"><input type="number" id="blefarEsp"
+                                                    name="Enganação" value="0"><label for="blefarEsp">Blefar</label>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="especialida_unica"><input type="number" id="disfarceEsp"
+                                                    name="Enganação" value="0"><label for="disfarceEsp">Disfarce</label>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="especialida_unica"><input type="number" id="trapacearEsp"
+                                                    name="Enganação" value="0"><label
+                                                    for="trapacearEsp">Trapacear</label>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
-                            <div class="especialidades">
-                                <ul>
-                                    <li>
-                                        <div class="especialida_unica"><input type="text" id="diagnosticoEsp"
-                                                name="Cura" value="0"><label for="diagnosticoEsp">Diagnóstico</label>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="especialida_unica"><input type="text" id="tratarDoencaEsp"
-                                                name="Cura" value="0"><label for="tratarDoencaEsp">Tratar Doença</label>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="especialida_unica"><input type="text" id="tratarFerimentoEsp"
-                                                name="Cura" value="0"><label for="tratarFerimentoEsp">Tratar
-                                                Ferimento</label></div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <!-- Enganação -->
-                        <div class="atributos">
-                            <div class="graduacoes">
-                                <input type="text" name="Enganação" id="enganacaoGrad" class="graduacaoPad">
-                            </div>
-                            <div class="habilidades">
-                                <button id="enganacaoBotao" class="botaoDado">Enganação</button>
-                            </div>
-                            <div class="especialidades">
-                                <ul>
-                                    <li>
-                                        <div class="especialida_unica"><input type="text" id="atuarEsp" name="Enganação"
-                                                value="0"><label for="atuarEsp">Atuar</label></div>
-                                    </li>
-                                    <li>
-                                        <div class="especialida_unica"><input type="text" id="blefarEsp"
-                                                name="Enganação" value="0"><label for="blefarEsp">Blefar</label></div>
-                                    </li>
-                                    <li>
-                                        <div class="especialida_unica"><input type="text" id="disfarceEsp"
-                                                name="Enganação" value="0"><label for="disfarceEsp">Disfarce</label>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="especialida_unica"><input type="text" id="trapacearEsp"
-                                                name="Enganação" value="0"><label for="trapacearEsp">Trapacear</label>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
 
-                        <!-- Furtividade -->
-                        <div class="atributos">
-                            <div class="graduacoes">
-                                <input type="text" name="Furtividade" id="furtividadeGrad" class="graduacaoPad">
+                            <!-- Furtividade -->
+                            <div class="atributos">
+                                <div class="graduacoes">
+                                    <input type="number" name="Furtividade" id="furtividadeGrad" class="graduacaoPad">
+                                </div>
+                                <div class="habilidades">
+                                    <button id="furtividadeBotao" class="botaoDado">Furtividade</button>
+                                </div>
+                                <div class="especialidades">
+                                    <ul>
+                                        <li>
+                                            <div class="especialida_unica"><input type="number" id="esgueirarEsp"
+                                                    name="Furtividade" value="0"><label
+                                                    for="esgueirarEsp">Esgueirar-se</label></div>
+                                        </li>
+                                        <li>
+                                            <div class="especialida_unica"><input type="number" id="mesclarEsp"
+                                                    name="Furtividade" value="0"><label
+                                                    for="mesclarEsp">Mesclar-se</label>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
-                            <div class="habilidades">
-                                <button id="furtividadeBotao" class="botaoDado">Furtividade</button>
+
+                            <!-- Guerra -->
+                            <div class="atributos">
+                                <div class="graduacoes">
+                                    <input type="number" name="Guerra" id="guerraGrad" class="graduacaoPad">
+                                </div>
+                                <div class="habilidades">
+                                    <button id="guerraBotao" class="botaoDado">Guerra</button>
+                                </div>
+                                <div class="especialidades">
+                                    <ul>
+                                        <li>
+                                            <div class="especialida_unica"><input type="number" id="comandarEsp"
+                                                    name="Guerra" value="0"><label for="comandarEsp">Comandar</label>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="especialida_unica"><input type="number" id="estrategiaEsp"
+                                                    name="Guerra" value="0"><label
+                                                    for="estrategiaEsp">Estratégia</label>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="especialida_unica"><input type="number" id="taticaEsp"
+                                                    name="Guerra" value="0"><label for="taticaEsp">Tática</label></div>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
-                            <div class="especialidades">
-                                <ul>
-                                    <li>
-                                        <div class="especialida_unica"><input type="text" id="esgueirarEsp"
-                                                name="Furtividade" value="0"><label
-                                                for="esgueirarEsp">Esgueirar-se</label></div>
-                                    </li>
-                                    <li>
-                                        <div class="especialida_unica"><input type="text" id="mesclarEsp"
-                                                name="Furtividade" value="0"><label for="mesclarEsp">Mesclar-se</label>
-                                        </div>
-                                    </li>
-                                </ul>
+
+                            <!-- Idioma -->
+                            <div class="atributos">
+                                <div class="graduacoes">
+                                    <input type="number" name="Idioma" id="idiomaGrad" class="graduacaoPad">
+                                </div>
+                                <div class="habilidades">
+                                    <button id="idiomaBotao" class="botaoDado">Idioma</button>
+                                </div>
+                                <div class="especialidades">
+                                    <div class="campo">
+                                        <textarea rows="2" style="border: none; margin: 0; font-size: 3vh;"></textarea>
+                                    </div>
+                                </div>
                             </div>
+
+                            <!-- Ladinagem -->
+                            <div class="atributos">
+                                <div class="graduacoes">
+                                    <input type="number" name="Ladinagem" id="ladinagemGrad" class="graduacaoPad">
+                                </div>
+                                <div class="habilidades">
+                                    <button id="ladinagemBotao" class="botaoDado">Ladinagem</button>
+                                </div>
+                                <div class="especialidades">
+                                    <ul>
+                                        <li>
+                                            <div class="especialida_unica"><input type="number" id="arrombarEsp"
+                                                    name="Ladinagem" value="0"><label for="arrombarEsp">Arrombar</label>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="especialida_unica"><input type="number" id="furtarEsp"
+                                                    name="Ladinagem" value="0"><label for="furtarEsp">Furtar</label>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="especialida_unica"><input type="number" id="prestidigitacaoEsp"
+                                                    name="Ladinagem" value="0"><label
+                                                    for="prestidigitacaoEsp">Prestidigitação</label></div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- Lidar com Animais -->
+                            <div class="atributos">
+                                <div class="graduacoes">
+                                    <input type="number" name="Lidar com Animais" id="lidarComAnimaisGrad"
+                                        class="graduacaoPad">
+                                </div>
+                                <div class="habilidades">
+                                    <button id="lidarComAnimaisBotao" class="botaoDado">Lidar com Animais</button>
+                                </div>
+                                <div class="especialidades">
+                                    <ul>
+                                        <li>
+                                            <div class="especialida_unica"><input type="number" id="cavalgarEsp"
+                                                    name="Lidar com Animais" value="0"><label
+                                                    for="cavalgarEsp">Cavalgar</label></div>
+                                        </li>
+                                        <li>
+                                            <div class="especialida_unica"><input type="number" id="conduzirEsp"
+                                                    name="Lidar com Animais" value="0"><label
+                                                    for="conduzirEsp">Conduzir</label></div>
+                                        </li>
+                                        <li>
+                                            <div class="especialida_unica"><input type="number" id="encantarEsp"
+                                                    name="Lidar com Animais" value="0"><label
+                                                    for="encantarEsp">Encantar</label></div>
+                                        </li>
+                                        <li>
+                                            <div class="especialida_unica"><input type="number" id="treinarEsp"
+                                                    name="Lidar com Animais" value="0"><label
+                                                    for="treinarEsp">Treinar</label></div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- Luta -->
+                            <div class="atributos">
+                                <div class="graduacoes">
+                                    <input type="number" name="Luta" id="lutaGrad" class="graduacaoPad">
+                                </div>
+                                <div class="habilidades">
+                                    <button id="lutaBotao" class="botaoDado">Luta</button>
+                                </div>
+                                <div class="especialidades">
+                                    <ul>
+                                        <li>
+                                            <div class="especialida_unica"><input type="number" id="armasContusaoEsp"
+                                                    name="Luta" value="0"><label for="armasContusaoEsp">Armas de
+                                                    Contusão</label></div>
+                                        </li>
+                                        <li>
+                                            <div class="especialida_unica"><input type="number" id="armasHasteEsp"
+                                                    name="Luta" value="0"><label for="armasHasteEsp">Armas de
+                                                    Haste</label></div>
+                                        </li>
+                                        <li>
+                                            <div class="especialida_unica"><input type="number" id="brigaEsp"
+                                                    name="Luta" value="0"><label for="brigaEsp">Briga</label></div>
+                                        </li>
+                                        <li>
+                                            <div class="especialida_unica"><input type="number" id="escudosEsp"
+                                                    name="Luta" value="0"><label for="escudosEsp">Escudos</label></div>
+                                        </li>
+                                        <li>
+                                            <div class="especialida_unica"><input type="number" id="esgrimaEsp"
+                                                    name="Luta" value="0"><label for="esgrimaEsp">Esgrima</label></div>
+                                        </li>
+                                        <li>
+                                            <div class="especialida_unica"><input type="number" id="laminasCurtasEsp"
+                                                    name="Luta" value="0"><label for="laminasCurtasEsp">Lâminas
+                                                    Curtas</label></div>
+                                        </li>
+                                        <li>
+                                            <div class="especialida_unica"><input type="number" id="laminasLongasEsp"
+                                                    name="Luta" value="0"><label for="laminasLongasEsp">Lâminas
+                                                    Longas</label></div>
+                                        </li>
+                                        <li>
+                                            <div class="especialida_unica"><input type="number" id="lancasEsp"
+                                                    name="Luta" value="0"><label for="lancasEsp">Lanças</label></div>
+                                        </li>
+                                        <li>
+                                            <div class="especialida_unica"><input type="number" id="machadosEsp"
+                                                    name="Luta" value="0"><label for="machadosEsp">Machados</label>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- Percepção -->
+                            <div class="atributos">
+                                <div class="graduacoes">
+                                    <input type="number" name="Percepção" id="percepcaoGrad" class="graduacaoPad">
+                                </div>
+                                <div class="habilidades">
+                                    <button id="percepcaoBotao" class="botaoDado">Percepção</button>
+                                </div>
+                                <div class="especialidades">
+                                    <ul>
+                                        <li>
+                                            <div class="especialida_unica"><input type="number" id="empatiaEsp"
+                                                    name="Percepção" value="0"><label for="empatiaEsp">Empatia</label>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="especialida_unica"><input type="number" id="notarEsp"
+                                                    name="Percepção" value="0"><label for="notarEsp">Notar</label></div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- Persuasão -->
+                            <div class="atributos">
+                                <div class="graduacoes">
+                                    <input type="number" name="Persuasão" id="persuasaoGrad" class="graduacaoPad">
+                                </div>
+                                <div class="habilidades">
+                                    <button id="persuasaoBotao" class="botaoDado">Persuasão</button>
+                                </div>
+                                <div class="especialidades">
+                                    <ul>
+                                        <li>
+                                            <div class="especialida_unica"><input type="number" id="barganhaEsp"
+                                                    name="Persuasão" value="0"><label for="barganhaEsp">Barganha</label>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="especialida_unica"><input type="number" id="charmeEsp"
+                                                    name="Persuasão" value="0"><label for="charmeEsp">Charme</label>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="especialida_unica"><input type="number" id="convencerEsp"
+                                                    name="Persuasão" value="0"><label
+                                                    for="convencerEsp">Convencer</label>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="especialida_unica"><input type="number id=" incitarEsp"
+                                                    name="Persuasão" value="0"><label for="incitarEsp">Incitar</label>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="especialida_unica"><input type="number" id="intimidarEsp"
+                                                    name="Persuasão" value="0"><label
+                                                    for="intimidarEsp">Intimidar</label>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="especialida_unica"><input type="number" id="provocarEsp"
+                                                    name="Persuasão" value="0"><label for="provocarEsp">Provocar</label>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="especialida_unica"><input type="number" id="seduzirEsp"
+                                                    name="Persuasão" value="0"><label for="seduzirEsp">Seduzir</label>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- Pontaria -->
+                            <div class="atributos">
+                                <div class="graduacoes">
+                                    <input type="number" name="Pontaria" id="pontariaGrad" class="graduacaoPad">
+                                </div>
+                                <div class="habilidades">
+                                    <button id="pontariaBotao" class="botaoDado">Pontaria</button>
+                                </div>
+                                <div class="especialidades">
+                                    <ul>
+                                        <li>
+                                            <div class="especialida_unica"><input type="number" id="arcosEsp"
+                                                    name="Pontaria" value="0"><label for="arcosEsp">Arcos</label></div>
+                                        </li>
+                                        <li>
+                                            <div class="especialida_unica"><input type="number"
+                                                    id="armasArremessadasEsp" name="Pontaria" value="0"><label
+                                                    for="armasArremessadasEsp">Armas
+                                                    Arremessadas</label></div>
+                                        </li>
+                                        <li>
+                                            <div class="especialida_unica"><input type="number" id="armasCercoEsp"
+                                                    name="Pontaria" value="0"><label for="armasCercoEsp">Armas de
+                                                    Cerco</label></div>
+                                        </li>
+                                        <li>
+                                            <div class="especialida_unica"><input type="number" id="bestasEsp"
+                                                    name="Pontaria" value="0"><label for="bestasEsp">Bestas</label>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- Sobrevivência -->
+                            <div class="atributos">
+                                <div class="graduacoes">
+                                    <input type="number" name="Sobrevivência" id="sobrevivenciaGrad"
+                                        class="graduacaoPad">
+                                </div>
+                                <div class="habilidades">
+                                    <button id="sobrevivenciaBotao" class="botaoDado">Sobrevivência</button>
+                                </div>
+                                <div class="especialidades">
+                                    <ul>
+                                        <li>
+                                            <div class="especialida_unica"><input type="number" id="cacarEsp"
+                                                    name="Sobrevivência" value="0"><label for="cacarEsp">Caçar</label>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="especialida_unica"><input type="number" id="coletarEsp"
+                                                    name="Sobrevivência" value="0"><label
+                                                    for="coletarEsp">Coletar</label>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="especialida_unica"><input type="number" id="orientarEsp"
+                                                    name="Sobrevivência" value="0"><label
+                                                    for="orientarEsp">Orientar-se</label></div>
+                                        </li>
+                                        <li>
+                                            <div class="especialida_unica"><input type="number" id="rastrearEsp"
+                                                    name="Sobrevivência" value="0"><label
+                                                    for="rastrearEsp">Rastrear</label>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- Status -->
+                            <div class="atributos">
+                                <div class="graduacoes">
+                                    <input type="number" name="Status" id="statusGrad" class="graduacaoPad">
+                                </div>
+                                <div class="habilidades">
+                                    <button id="statusBotao" class="botaoDado">Status</button>
+                                </div>
+                                <div class="especialidades">
+                                    <ul>
+                                        <li>
+                                            <div class="especialida_unica"><input type="number" id="administracaoEsp"
+                                                    name="Status" value="0"><label
+                                                    for="administracaoEsp">Administração</label></div>
+                                        </li>
+                                        <li>
+                                            <div class="especialida_unica"><input type="number" id="criacaoEsp"
+                                                    name="Status" value="0"><label for="criacaoEsp">Criação</label>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="especialida_unica"><input type="number" id="reputacaoEsp"
+                                                    name="Status" value="0"><label for="reputacaoEsp">Reputação</label>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="especialida_unica"><input type="number" id="torneiosEsp"
+                                                    name="Status" value="0"><label for="torneiosEsp">Torneios</label>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- Vigor -->
+                            <div class="atributos">
+                                <div class="graduacoes">
+                                    <input type="number" name="Vigor" id="vigorGrad" class="graduacaoPad">
+                                </div>
+                                <div class="habilidades">
+                                    <button id="vigorBotao" class="botaoDado">Vigor</button>
+                                </div>
+                                <div class="especialidades">
+                                    <ul>
+                                        <li>
+                                            <div class="especialida_unica"><input type="number" id="resistenciaEsp"
+                                                    name="Vigor" value="0"><label
+                                                    for="resistenciaEsp">Resistência</label>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="especialida_unica"><input type="number" id="vitalidadeEsp"
+                                                    name="Vigor" value="0"><label for="vitalidadeEsp">Vitalidade</label>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- Vontade -->
+                            <div class="atributos">
+                                <div class="graduacoes">
+                                    <input type="number" name="Vontade" id="vontadeGrad" class="graduacaoPad">
+                                </div>
+                                <div class="habilidades">
+                                    <button id="vontadeBotao" class="botaoDado">Vontade</button>
+                                </div>
+                                <div class="especialidades">
+                                    <ul>
+                                        <li>
+                                            <div class="especialida_unica"><input type="number" id="coordenarEsp"
+                                                    name="Vontade" value="0"><label for="coordenarEsp">Coordenar</label>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="especialida_unica"><input type="number" id="coragemEsp"
+                                                    name="Vontade" value="0"><label for="coragemEsp">Coragem</label>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="especialida_unica"><input type="number" id="dedicacaoEsp"
+                                                    name="Vontade" value="0"><label for="dedicacaoEsp">Dedicação</label>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
                         </div>
-
-                        <!-- Guerra -->
-                        <div class="atributos">
-                            <div class="graduacoes">
-                                <input type="text" name="Guerra" id="guerraGrad" class="graduacaoPad">
-                            </div>
-                            <div class="habilidades">
-                                <button id="guerraBotao" class="botaoDado">Guerra</button>
-                            </div>
-                            <div class="especialidades">
-                                <ul>
-                                    <li>
-                                        <div class="especialida_unica"><input type="text" id="comandarEsp" name="Guerra"
-                                                value="0"><label for="comandarEsp">Comandar</label></div>
-                                    </li>
-                                    <li>
-                                        <div class="especialida_unica"><input type="text" id="estrategiaEsp"
-                                                name="Guerra" value="0"><label for="estrategiaEsp">Estratégia</label>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="especialida_unica"><input type="text" id="taticaEsp" name="Guerra"
-                                                value="0"><label for="taticaEsp">Tática</label></div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <!-- Idioma -->
-                        <div class="atributos">
-                            <div class="graduacoes">
-                                <input type="text" name="Idioma" id="idiomaGrad" class="graduacaoPad">
-                            </div>
-                            <div class="habilidades">
-                                <button id="idiomaBotao" class="botaoDado">Idioma</button>
-                            </div>
-                            <div class="especialidades">
-                                <ul>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <!-- Ladinagem -->
-                        <div class="atributos">
-                            <div class="graduacoes">
-                                <input type="text" name="Ladinagem" id="ladinagemGrad" class="graduacaoPad">
-                            </div>
-                            <div class="habilidades">
-                                <button id="ladinagemBotao" class="botaoDado">Ladinagem</button>
-                            </div>
-                            <div class="especialidades">
-                                <ul>
-                                    <li>
-                                        <div class="especialida_unica"><input type="text" id="arrombarEsp"
-                                                name="Ladinagem" value="0"><label for="arrombarEsp">Arrombar</label>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="especialida_unica"><input type="text" id="furtarEsp"
-                                                name="Ladinagem" value="0"><label for="furtarEsp">Furtar</label></div>
-                                    </li>
-                                    <li>
-                                        <div class="especialida_unica"><input type="text" id="prestidigitacaoEsp"
-                                                name="Ladinagem" value="0"><label
-                                                for="prestidigitacaoEsp">Prestidigitação</label></div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <!-- Lidar com Animais -->
-                        <div class="atributos">
-                            <div class="graduacoes">
-                                <input type="text" name="Lidar com Animais" id="lidarComAnimaisGrad"
-                                    class="graduacaoPad">
-                            </div>
-                            <div class="habilidades">
-                                <button id="lidarComAnimaisBotao" class="botaoDado">Lidar com Animais</button>
-                            </div>
-                            <div class="especialidades">
-                                <ul>
-                                    <li>
-                                        <div class="especialida_unica"><input type="text" id="cavalgarEsp"
-                                                name="Lidar com Animais" value="0"><label
-                                                for="cavalgarEsp">Cavalgar</label></div>
-                                    </li>
-                                    <li>
-                                        <div class="especialida_unica"><input type="text" id="conduzirEsp"
-                                                name="Lidar com Animais" value="0"><label
-                                                for="conduzirEsp">Conduzir</label></div>
-                                    </li>
-                                    <li>
-                                        <div class="especialida_unica"><input type="text" id="encantarEsp"
-                                                name="Lidar com Animais" value="0"><label
-                                                for="encantarEsp">Encantar</label></div>
-                                    </li>
-                                    <li>
-                                        <div class="especialida_unica"><input type="text" id="treinarEsp"
-                                                name="Lidar com Animais" value="0"><label
-                                                for="treinarEsp">Treinar</label></div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <!-- Luta -->
-                        <div class="atributos">
-                            <div class="graduacoes">
-                                <input type="text" name="Luta" id="lutaGrad" class="graduacaoPad">
-                            </div>
-                            <div class="habilidades">
-                                <button id="lutaBotao" class="botaoDado">Luta</button>
-                            </div>
-                            <div class="especialidades">
-                                <ul>
-                                    <li>
-                                        <div class="especialida_unica"><input type="text" id="armasContusaoEsp"
-                                                name="Luta" value="0"><label for="armasContusaoEsp">Armas de
-                                                Contusão</label></div>
-                                    </li>
-                                    <li>
-                                        <div class="especialida_unica"><input type="text" id="armasHasteEsp" name="Luta"
-                                                value="0"><label for="armasHasteEsp">Armas de Haste</label></div>
-                                    </li>
-                                    <li>
-                                        <div class="especialida_unica"><input type="text" id="brigaEsp" name="Luta"
-                                                value="0"><label for="brigaEsp">Briga</label></div>
-                                    </li>
-                                    <li>
-                                        <div class="especialida_unica"><input type="text" id="escudosEsp" name="Luta"
-                                                value="0"><label for="escudosEsp">Escudos</label></div>
-                                    </li>
-                                    <li>
-                                        <div class="especialida_unica"><input type="text" id="esgrimaEsp" name="Luta"
-                                                value="0"><label for="esgrimaEsp">Esgrima</label></div>
-                                    </li>
-                                    <li>
-                                        <div class="especialida_unica"><input type="text" id="laminasCurtasEsp"
-                                                name="Luta" value="0"><label for="laminasCurtasEsp">Lâminas
-                                                Curtas</label></div>
-                                    </li>
-                                    <li>
-                                        <div class="especialida_unica"><input type="text" id="laminasLongasEsp"
-                                                name="Luta" value="0"><label for="laminasLongasEsp">Lâminas
-                                                Longas</label></div>
-                                    </li>
-                                    <li>
-                                        <div class="especialida_unica"><input type="text" id="lancasEsp" name="Luta"
-                                                value="0"><label for="lancasEsp">Lanças</label></div>
-                                    </li>
-                                    <li>
-                                        <div class="especialida_unica"><input type="text" id="machadosEsp" name="Luta"
-                                                value="0"><label for="machadosEsp">Machados</label></div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <!-- Percepção -->
-                        <div class="atributos">
-                            <div class="graduacoes">
-                                <input type="text" name="Percepção" id="percepcaoGrad" class="graduacaoPad">
-                            </div>
-                            <div class="habilidades">
-                                <button id="percepcaoBotao" class="botaoDado">Percepção</button>
-                            </div>
-                            <div class="especialidades">
-                                <ul>
-                                    <li>
-                                        <div class="especialida_unica"><input type="text" id="empatiaEsp"
-                                                name="Percepção" value="0"><label for="empatiaEsp">Empatia</label></div>
-                                    </li>
-                                    <li>
-                                        <div class="especialida_unica"><input type="text" id="notarEsp" name="Percepção"
-                                                value="0"><label for="notarEsp">Notar</label></div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <!-- Persuasão -->
-                        <div class="atributos">
-                            <div class="graduacoes">
-                                <input type="text" name="Persuasão" id="persuasaoGrad" class="graduacaoPad">
-                            </div>
-                            <div class="habilidades">
-                                <button id="persuasaoBotao" class="botaoDado">Persuasão</button>
-                            </div>
-                            <div class="especialidades">
-                                <ul>
-                                    <li>
-                                        <div class="especialida_unica"><input type="text" id="barganhaEsp"
-                                                name="Persuasão" value="0"><label for="barganhaEsp">Barganha</label>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="especialida_unica"><input type="text" id="charmeEsp"
-                                                name="Persuasão" value="0"><label for="charmeEsp">Charme</label></div>
-                                    </li>
-                                    <li>
-                                        <div class="especialida_unica"><input type="text" id="convencerEsp"
-                                                name="Persuasão" value="0"><label for="convencerEsp">Convencer</label>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="especialida_unica"><input type="text" id="incitarEsp"
-                                                name="Persuasão" value="0"><label for="incitarEsp">Incitar</label></div>
-                                    </li>
-                                    <li>
-                                        <div class="especialida_unica"><input type="text" id="intimidarEsp"
-                                                name="Persuasão" value="0"><label for="intimidarEsp">Intimidar</label>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="especialida_unica"><input type="text" id="provocarEsp"
-                                                name="Persuasão" value="0"><label for="provocarEsp">Provocar</label>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="especialida_unica"><input type="text" id="seduzirEsp"
-                                                name="Persuasão" value="0"><label for="seduzirEsp">Seduzir</label></div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <!-- Pontaria -->
-                        <div class="atributos">
-                            <div class="graduacoes">
-                                <input type="text" name="Pontaria" id="pontariaGrad" class="graduacaoPad">
-                            </div>
-                            <div class="habilidades">
-                                <button id="pontariaBotao" class="botaoDado">Pontaria</button>
-                            </div>
-                            <div class="especialidades">
-                                <ul>
-                                    <li>
-                                        <div class="especialida_unica"><input type="text" id="arcosEsp" name="Pontaria"
-                                                value="0"><label for="arcosEsp">Arcos</label></div>
-                                    </li>
-                                    <li>
-                                        <div class="especialida_unica"><input type="text" id="armasArremessadasEsp"
-                                                name="Pontaria" value="0"><label for="armasArremessadasEsp">Armas
-                                                Arremessadas</label></div>
-                                    </li>
-                                    <li>
-                                        <div class="especialida_unica"><input type="text" id="armasCercoEsp"
-                                                name="Pontaria" value="0"><label for="armasCercoEsp">Armas de
-                                                Cerco</label></div>
-                                    </li>
-                                    <li>
-                                        <div class="especialida_unica"><input type="text" id="bestasEsp" name="Pontaria"
-                                                value="0"><label for="bestasEsp">Bestas</label></div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <!-- Sobrevivência -->
-                        <div class="atributos">
-                            <div class="graduacoes">
-                                <input type="text" name="Sobrevivência" id="sobrevivenciaGrad" class="graduacaoPad">
-                            </div>
-                            <div class="habilidades">
-                                <button id="sobrevivenciaBotao" class="botaoDado">Sobrevivência</button>
-                            </div>
-                            <div class="especialidades">
-                                <ul>
-                                    <li>
-                                        <div class="especialida_unica"><input type="text" id="cacarEsp"
-                                                name="Sobrevivência" value="0"><label for="cacarEsp">Caçar</label></div>
-                                    </li>
-                                    <li>
-                                        <div class="especialida_unica"><input type="text" id="coletarEsp"
-                                                name="Sobrevivência" value="0"><label for="coletarEsp">Coletar</label>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="especialida_unica"><input type="text" id="orientarEsp"
-                                                name="Sobrevivência" value="0"><label
-                                                for="orientarEsp">Orientar-se</label></div>
-                                    </li>
-                                    <li>
-                                        <div class="especialida_unica"><input type="text" id="rastrearEsp"
-                                                name="Sobrevivência" value="0"><label for="rastrearEsp">Rastrear</label>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <!-- Status -->
-                        <div class="atributos">
-                            <div class="graduacoes">
-                                <input type="text" name="Status" id="statusGrad" class="graduacaoPad">
-                            </div>
-                            <div class="habilidades">
-                                <button id="statusBotao" class="botaoDado">Status</button>
-                            </div>
-                            <div class="especialidades">
-                                <ul>
-                                    <li>
-                                        <div class="especialida_unica"><input type="text" id="administracaoEsp"
-                                                name="Status" value="0"><label
-                                                for="administracaoEsp">Administração</label></div>
-                                    </li>
-                                    <li>
-                                        <div class="especialida_unica"><input type="text" id="criacaoEsp" name="Status"
-                                                value="0"><label for="criacaoEsp">Criação</label></div>
-                                    </li>
-                                    <li>
-                                        <div class="especialida_unica"><input type="text" id="reputacaoEsp"
-                                                name="Status" value="0"><label for="reputacaoEsp">Reputação</label>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="especialida_unica"><input type="text" id="torneiosEsp" name="Status"
-                                                value="0"><label for="torneiosEsp">Torneios</label></div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <!-- Vigor -->
-                        <div class="atributos">
-                            <div class="graduacoes">
-                                <input type="text" name="Vigor" id="vigorGrad" class="graduacaoPad">
-                            </div>
-                            <div class="habilidades">
-                                <button id="vigorBotao" class="botaoDado">Vigor</button>
-                            </div>
-                            <div class="especialidades">
-                                <ul>
-                                    <li>
-                                        <div class="especialida_unica"><input type="text" id="resistenciaEsp"
-                                                name="Vigor" value="0"><label for="resistenciaEsp">Resistência</label>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="especialida_unica"><input type="text" id="vitalidadeEsp"
-                                                name="Vigor" value="0"><label for="vitalidadeEsp">Vitalidade</label>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <!-- Vontade -->
-                        <div class="atributos">
-                            <div class="graduacoes">
-                                <input type="text" name="Vontade" id="vontadeGrad" class="graduacaoPad">
-                            </div>
-                            <div class="habilidades">
-                                <button id="vontadeBotao" class="botaoDado">Vontade</button>
-                            </div>
-                            <div class="especialidades">
-                                <ul>
-                                    <li>
-                                        <div class="especialida_unica"><input type="text" id="coordenarEsp"
-                                                name="Vontade" value="0"><label for="coordenarEsp">Coordenar</label>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="especialida_unica"><input type="text" id="coragemEsp" name="Vontade"
-                                                value="0"><label for="coragemEsp">Coragem</label></div>
-                                    </li>
-                                    <li>
-                                        <div class="especialida_unica"><input type="text" id="dedicacaoEsp"
-                                                name="Vontade" value="0"><label for="dedicacaoEsp">Dedicação</label>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-
-
-
 
                     </div>
-                </div>
-                </div>
-            </section>
-
-            <section class="notacoes_corporais">
-                <div class="intriga">
-                    <h1>INTRIGA</h1>
-                    <div class="intriga_part1">
-                        <div>
-                            <h2>Defesa Em Intriga</h2>
-                            <input class="defesa_intriga" type="text" disabled>
+                </section>
+                <section class="notacoes_corporais">
+                    <div class="intriga">
+                        <h1>INTRIGA</h1>
+                        <div class="intriga_part1">
+                            <div>
+                                <h2>Defesa Em Intriga</h2>
+                                <input class="defesa_intriga" type="text" disabled>
+                            </div>
                         </div>
                     </div>
+                </section>
+
+            </div>
+
+            <div id="historico" class="tab-content">
+                <div class="historico-ficha">
+
+                    <!-- Nome e Jogador -->
+                    <div class="linha">
+                        <div class="campo">
+                            <label for="nome">Nome</label>
+                            <input type="text" id="nome">
+                        </div>
+                        <div class="campo">
+                            <label for="jogador">Jogador</label>
+                            <input type="text" id="jogador">
+                        </div>
+                    </div>
+
+                    <!-- Aparência -->
+                    <fieldset class="secao">
+                        <legend>Aparência</legend>
+                        <div class="linha">
+                            <div class="campo"><label>Altura</label><input type="text"></div>
+                            <div class="campo"><label>Peso</label><input type="text"></div>
+                            <div class="campo"><label>Olhos</label><input type="text"></div>
+                            <div class="campo"><label>Cabelos</label><input type="text"></div>
+                        </div>
+                        <div class="campo"><label>Marcas de Nascimento</label><textarea></textarea></div>
+                        <div class="campo"><label>Detalhes</label><textarea></textarea></div>
+                    </fieldset>
+
+                    <!-- Personalidade -->
+                    <fieldset class="secao">
+                        <legend>Personalidade</legend>
+                        <button class="button_header" id="aleatorizar-personalidade"
+                            style="margin-bottom: 2vh;">Aleatorizar</button>
+                        <div class="linha">
+                            <div class="campo"><label>Objetivo</label><input id="objetivoHi" type="text"></div>
+                            <div class="campo"><label>Motivação</label><input id="motivacaoHi" type="text"></div>
+                            <div class="campo"><label>Virtude</label><input id="virtudeHi" type="text"></div>
+                            <div class="campo"><label>Vício</label><input id="vicioHi" type="text"></div>
+                        </div>
+                    </fieldset>
+
+                    <!-- Juramentos, Obrigações, Aliados, Inimigos -->
+                    <div class="linha">
+                        <div class="campo grande"><label>Juramentos</label><textarea></textarea></div>
+                        <div class="campo grande"><label>Obrigações</label><textarea></textarea></div>
+                    </div>
+                    <div class="linha">
+                        <div class="campo grande"><label>Aliados</label><textarea></textarea></div>
+                        <div class="campo grande"><label>Inimigos</label><textarea></textarea></div>
+                    </div>
+
+                    <!-- História -->
+                    <div class="campo">
+                        <label>História</label>
+                        <textarea rows="6"></textarea>
+                    </div>
+
+                    <!-- Dinheiro e Experiência -->
+                    <div class="linha">
+                        <div class="campo"><label>Dinheiro</label><input type="text"></div>
+                    </div>
+
+                    <!-- Posses -->
+                    <div class="campo">
+                        <label>Posses</label>
+                        <textarea rows="4"></textarea>
+                    </div>
+
+                    <!-- Brasão e Lema -->
+                    <fieldset class="secao brasao">
+                        <legend>Brasão & Lema</legend>
+                        <div class="brasao-espaco">🛡️ (espaço reservado para o escudo)</div>
+                    </fieldset>
                 </div>
-            </section>
+            </div>
+
+            </div>
+
         </section>
+
+
+        </div>
+    </section>
     </section>
 
 
-    <script src="index.js"></script>
+    <script type="module" src="scripts/index.js"></script>
 </body>
 
 </html>
