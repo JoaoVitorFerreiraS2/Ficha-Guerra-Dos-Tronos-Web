@@ -12,7 +12,8 @@
 
 O projeto ainda está em desenvolvimento e as próximas atualizações serão voltadas para as seguintes tarefas:
 
-- [ ] Deixar para teste
+- [ ] Corrigir o problema do "reiniciar ficha", ele não reinicia as graduações
+- [ ] Terminar a parte de intriga e tals
 
 ## 💻 Pré-requisitos
 

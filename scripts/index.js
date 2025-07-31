@@ -1,23 +1,22 @@
 // js/index.js
 import {
-  valorPadrao,
-  tabelaCustoGrad,
-  getCustoGrad,
-  getCustoEsp, 
-  adicionarValorPad,
-  xpIdadeInicial
+  Habilidades
 } from './habilidades/habilidades.js';
 
 import {
   aleatorizarPersonalidade
 } from './historico/personalida-aleatorizar.js';
 
-
+const habilidadesObj = new Habilidades();
 
 // Pega elementos do HTML
 // Abas
 const tabButtons = document.querySelectorAll('.tab-button');
 const tabContents = document.querySelectorAll('.tab-content');
+
+// Valores padrões
+
+const valorPadrao = 2;
 
 tabButtons.forEach(button => {
   button.addEventListener('click', () => {
@@ -71,8 +70,8 @@ function podeIniciar() {
     return false;
   }
   else {
-    adicionarValorPad(inputsGrad, valorPadrao);
-    const idadeIdentificador = xpIdadeInicial(parseInt(idadeInput.value), xpInputGrad, xpInputEsp);
+    habilidadesObj.adicionarValorPad(inputsGrad, valorPadrao);
+    const idadeIdentificador = habilidadesObj.xpIdadeInicial(parseInt(idadeInput.value), xpInputGrad, xpInputEsp);
     console.log('Idade Identificador:', idadeIdentificador);
 
     initFicha.innerHTML = 'Reiniciar Ficha';
@@ -103,31 +102,40 @@ inputsGrad.forEach(input => {
     if (event.target.value === '') {
 
     }
-    else if (event.target.value >= 8 || event.target.value <= 0) {
+    else if ((event.target.value >= 8 || event.target.value <= 0) && event.target.name !== "Status") {
       alert('Valor inválido. Deve ser entre 1 e 7.');
       event.target.value = valoresAnterioresGrad.get(input);
       return;
-
     }
     else {
-      const novo = Number(event.target.value);
-      const anterior = valoresAnterioresGrad.get(input);
-      const custoNovo = getCustoGrad(novo);
-      const custoAnterior = getCustoGrad(anterior);
+      let max_grad = habilidadesObj.monitoradorDeIdade();
+      console.log(`Valor máximo permitido: ${max_grad}`);
 
-      const diferenca = custoNovo - custoAnterior;
-
-      xpInputGrad.value = Number(xpInputGrad.value) - diferenca;
-
-      if (xpInputGrad.value < 0) {
-        alert('Experiência insuficiente. Valor revertido.');
+      if (event.target.value > max_grad && event.target.name !== "Status") {
+        alert(`Você é ${habilidadesObj.idadeIdentificador}. Valor máximo permitido: ${max_grad}`);
         event.target.value = valoresAnterioresGrad.get(input);
-        xpInputGrad.value = Number(xpInputGrad.value) + diferenca;
         return;
       }
+      else {
+        const novoValor = Number(event.target.value);
+        const anterior = valoresAnterioresGrad.get(input);
+        const custoNovo = habilidadesObj.getCustoGrad(novoValor);
+        const custoAnterior = habilidadesObj.getCustoGrad(anterior);
 
-      valoresAnterioresGrad.set(input, novo);
-      
+        const diferenca = custoNovo - custoAnterior;
+
+        xpInputGrad.value = Number(xpInputGrad.value) - diferenca;
+
+        if (xpInputGrad.value < 0) {
+          alert('Experiência insuficiente. Valor revertido.');
+          event.target.value = valoresAnterioresGrad.get(input);
+          xpInputGrad.value = Number(xpInputGrad.value) + diferenca;
+          return;
+        }
+
+        valoresAnterioresGrad.set(input, novoValor);
+      }
+
     }
 
   });
@@ -140,7 +148,7 @@ inputEsp.forEach(input => {
   input.addEventListener('input', (event) => {
     if (event.target.value === '') {
       // Não faz nada se o campo estiver vazio
-    } else if(event.target.value < 0){
+    } else if (event.target.value < 0) {
       event.target.value = valoresAnterioresEsp.get(input);
     } else {
       const novo = Number(event.target.value);
