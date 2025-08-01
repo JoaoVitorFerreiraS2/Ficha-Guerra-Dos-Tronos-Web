@@ -12,8 +12,9 @@
 
 O projeto ainda está em desenvolvimento e as próximas atualizações serão voltadas para as seguintes tarefas:
 
-- [ ] Corrigir o problema do "reiniciar ficha", ele não reinicia as graduações
+- [ ] Não esquecer de colocar pontos de destino em algum lugar da ficha
 - [ ] Terminar a parte de intriga e tals
+- [ ] Local para equipamentos
 
 ## 💻 Pré-requisitos
 

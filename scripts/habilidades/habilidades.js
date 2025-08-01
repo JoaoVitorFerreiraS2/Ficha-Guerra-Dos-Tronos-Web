@@ -2,6 +2,7 @@
 
 export function Habilidades() {
     const valorPadrao = 2;
+    let iniciou = false;
 
     const tabelaCustoGrad = {
         "1": -50,
@@ -37,12 +38,23 @@ export function Habilidades() {
         // Custo base até nível 3 + 10 por nível acima
         return tabelaCustoEsp["3"] + (valorNum - 3) * 10;
     }
+
     this.adicionarValorPad = function (inputsGrad, valor) {
-        for (const input of inputsGrad) {
-            if (input.value === '') {
+
+        if (iniciou == false) {
+            iniciou = true;
+            for (const input of inputsGrad) {
+                if (input.value === '') {
+                    input.value = valor;
+                }
+            }
+        }
+        else {
+            for (const input of inputsGrad) {
                 input.value = valor;
             }
         }
+
     }
 
     this.xpIdadeInicial = function (idade, xpInputGrad, xpInputEsp) {

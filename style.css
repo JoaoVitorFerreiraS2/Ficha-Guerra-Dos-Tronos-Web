@@ -232,11 +232,63 @@ input {
 
 .notacoes_corporais {
     display: flex;
+    flex-direction: column;
     width: 50%;
-    border: 2px solid red;
 }
 
-.pop_up {
+.intriga{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    height: 10%;
+    flex-direction: column;
+    font-family: 'Garamond', serif;
+    letter-spacing: 1px;
+    border-bottom: 1px solid black;
+}
+
+.intriga input, .container_combate input{
+    background-color: white;
+    border: 1px solid black;
+    color: black;
+    width: 3vw;
+    text-align: center;
+    letter-spacing: none;
+    }
+
+.container_intriga{
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    margin-top: 1vh;
+    justify-content: space-evenly;
+}
+
+.defesa_intriga_father, .compostura_father {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.combate{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Garamond', serif;
+    letter-spacing: 1px;
+
+}
+
+.container_combate{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    text-align: center;
+    width: 100%;
+}
+
+/* .pop_up {
     display: flex;
     position: fixed;
     width: 100%;
@@ -297,7 +349,7 @@ input {
     margin-top: 2vh;
     color: rgb(196, 98, 0);
     text-decoration-color: rgb(0, 0, 0);
-}
+} */
 
 
 /* Histórico */

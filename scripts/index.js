@@ -55,6 +55,14 @@ const aleatorizarPersonalidadeBtn = document.querySelector('#aleatorizar-persona
 let xpInputGrad = document.querySelector('#xp_grad');
 let xpInputEsp = document.querySelector('#xp_esp');
 const inputEsp = document.querySelectorAll('.especialida_unica');
+const defesaIntriga = document.querySelector('.defesa_intriga');
+const composturaIntriga = document.querySelector('.compostura_intriga');
+
+// Intriga Soma
+const statusInput = document.getElementsByName("Status");
+const percepcaoInput = document.getElementsByName("Percepção");
+const astuciaInput = document.getElementsByName("Astúcia");
+const vontadeInput = document.getElementsByName("Vontade");
 
 const valoresAnterioresGrad = new Map();
 const valoresAnterioresEsp = new Map();
@@ -80,6 +88,10 @@ function podeIniciar() {
     inputsGrad.forEach(input => {
       input.disabled = false;
     });
+
+
+    defesaIntriga.value = parseInt(statusInput[0].value) + parseInt(percepcaoInput[0].value) + parseInt(astuciaInput[0].value);
+    composturaIntriga.value = parseInt(vontadeInput[0].value) * 3; 
   }
 
 }
@@ -134,6 +146,8 @@ inputsGrad.forEach(input => {
         }
 
         valoresAnterioresGrad.set(input, novoValor);
+        defesaIntriga.value = parseInt(statusInput[0].value) + parseInt(percepcaoInput[0].value) + parseInt(astuciaInput[0].value);
+        composturaIntriga.value = parseInt(vontadeInput[0].value) * 3; 
       }
 
     }
@@ -146,6 +160,7 @@ inputEsp.forEach(input => {
   valoresAnterioresEsp.set(input, 0);
 
   input.addEventListener('input', (event) => {
+    console.log('Estou aqui')
     if (event.target.value === '') {
       // Não faz nada se o campo estiver vazio
     } else if (event.target.value < 0) {
@@ -153,8 +168,8 @@ inputEsp.forEach(input => {
     } else {
       const novo = Number(event.target.value);
       const anterior = valoresAnterioresEsp.get(input);
-      const custoNovo = getCustoEsp(novo);
-      const custoAnterior = getCustoEsp(anterior);
+      const custoNovo = habilidadesObj.getCustoEsp(novo);
+      const custoAnterior = habilidadesObj.getCustoEsp(anterior);
 
       const diferenca = custoNovo - custoAnterior;
 
