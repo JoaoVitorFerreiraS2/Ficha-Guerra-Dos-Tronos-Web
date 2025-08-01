@@ -11,7 +11,7 @@
 ### Ajustes e melhorias
 
 O projeto ainda está em desenvolvimento e as próximas atualizações serão voltadas para as seguintes tarefas:
-
+Anotações do programador, pode pular, ainda não é importante esse local
 - [ ] Não esquecer de colocar pontos de destino em algum lugar da ficha
 - [ ] Terminar a parte de intriga e tals
 - [ ] Local para equipamentos
