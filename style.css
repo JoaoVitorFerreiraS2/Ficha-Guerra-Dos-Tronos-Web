@@ -301,7 +301,7 @@ input {
     width: 100%;
     flex-direction: row;
     margin-top: 1vh;
-    justify-content: space-evenly;
+    justify-content: center;
 }
 
 .defesa_intriga_father,
@@ -351,13 +351,14 @@ input {
     flex-wrap: wrap;
 }
 
-.ponto {
+.ponto_vida {
     width: 28px;
     height: 28px;
     background: #5e5e5e;
     background-image: url('https://static.vecteezy.com/system/resources/previews/018/719/301/non_2x/broken-heart-symbol-on-transparent-background-free-png.png');
     background-size: contain;
     background-position: center;
+    filter: saturate(60%);
     border: none;
     border: 2px solid #2a2a2a;
     box-shadow: inset 0 0 5px #111;
@@ -365,29 +366,67 @@ input {
     clip-path: polygon(0 0, 90% 0, 100% 10%, 100% 100%, 10% 100%, 0 90%);
 }
 
-.ponto:hover {
+.ponto_vida:hover {
     background-color: #7e1111;
     cursor: pointer;
     transform: scale(1.1);
     background-image: url('https://imagepng.org/coracao/coracao-1/');
+    filter: saturate(100%);
     background-size: contain;
     background-position: center;
 }
 
-.ponto.ativo {
+.ponto_vida.ativo_vida {
     background-color: #a4161a;
     border-color: #440000;
     background-image: url('https://imagepng.org/coracao/coracao-1/');
+    filter: saturate(100%);
     background-size: contain;
     background-position: center;
 }
 
-.ponto.ativo:hover{
+.ponto_vida.ativo_vida:hover{
     background-image: url('https://static.vecteezy.com/system/resources/previews/018/719/301/non_2x/broken-heart-symbol-on-transparent-background-free-png.png');
     background-size: contain;
     background-position: center;
+    filter: saturate(60%);
 }
 
+.ponto_compostura {
+    width: 28px;
+    height: 28px;
+    background: #5e5e5e;
+    background-image: url('https://static.vecteezy.com/system/resources/thumbnails/022/000/084/small/hand-painted-rejected-sign-free-png.png');
+    background-size: contain;
+    background-position: center;
+    filter: saturate(60%);
+    border: none;
+    border: 2px solid #2a2a2a;
+    box-shadow: inset 0 0 5px #111;
+    transition: background-color 0.3s, transform 0.1s;
+    clip-path: polygon(0 0, 90% 0, 100% 10%, 100% 100%, 10% 100%, 0 90%);
+}
+
+.ponto_compostura:hover {
+    background-color: #7e1111;
+    cursor: pointer;
+    transform: scale(1.1);
+    filter: saturate(100%);
+}
+
+.ponto_compostura.ativo_compostura {
+    background-color: #a4161a;
+    border-color: #440000;
+    background-image: url('https://cdn-icons-png.flaticon.com/512/251/251255.png');
+    background-size: contain;
+    background-position: center;
+    filter: saturate(100%);
+}
+
+.ponto_compostura.ativo_compostura:hover{
+    filter: saturate(30%);
+    background-image: url('https://static.vecteezy.com/system/resources/thumbnails/022/000/084/small/hand-painted-rejected-sign-free-png.png');
+}
 
 /* .pop_up {
     display: flex;

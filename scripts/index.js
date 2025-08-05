@@ -55,13 +55,22 @@ const aleatorizarPersonalidadeBtn = document.querySelector('#aleatorizar-persona
 let xpInputGrad = document.querySelector('#xp_grad');
 let xpInputEsp = document.querySelector('#xp_esp');
 const inputEsp = document.querySelectorAll('.especialida_unica');
-const barra = document.getElementById('barraDeVida');
+const barraDeVida = document.getElementById('barraDeVida');
+const barraDeCompostura = document.getElementById('barraDeCompostura');
 
 // Intriga Soma
 const statusInput = document.getElementsByName("Status");
 const percepcaoInput = document.getElementsByName("Percepção");
 const astuciaInput = document.getElementsByName("Astúcia");
 const vontadeInput = document.getElementsByName("Vontade");
+const composturaTotalh1 = document.getElementById("composturaTotalh1")
+
+let composturaAtualAntiga;
+let composturaTotal = 0
+let composturaAtual = 0
+
+
+
 
 // Saude
 const vigorInput = document.getElementsByName('Vigor');
@@ -96,13 +105,14 @@ function podeIniciar() {
       input.disabled = false;
     });
     let totalPontosSaude = parseInt(vigorInput[0].value) * 3;
-    console.log(totalPontosSaude)
     let saudeAtual = totalPontosSaude;
     vidaAtualAntiga = totalPontosSaude;
     verificarTotalSaude(totalPontosSaude, saudeAtual);
-    vidaTotalh1.innerText = `A sua saúde está forjada em aço e sangue: ${totalPontosSaude} pontos de vida (vigor ×3)`;
 
-
+    let totalPontosCompostura = parseInt(vontadeInput[0].value) * 3;
+    composturaAtual = totalPontosCompostura
+    composturaAtualAntiga = totalPontosCompostura;
+    verificarTotalCompostura(totalPontosCompostura, composturaAtual);
 
   }
 
@@ -110,38 +120,72 @@ function podeIniciar() {
 
 
 function verificarTotalSaude(total, atual) {
-  barra.innerHTML = '';
+  barraDeVida.innerHTML = '';
 
   vidaTotal = total;
   vidaAtual = atual;
 
   for (let i = 0; i < total; i++) {
     const bloco = document.createElement('div');
-    bloco.classList.add('ponto');
+    bloco.classList.add('ponto_vida');
 
     if (i < atual) {
-      bloco.classList.add('ativo');
+      bloco.classList.add('ativo_vida');
     }
 
     // Torna cada bloco clicável
     bloco.addEventListener('click', () => {
-      if (bloco.classList.contains('ativo')) {
-        bloco.classList.remove('ativo');
+      if (bloco.classList.contains('ativo_vida')) {
+        bloco.classList.remove('ativo_vida');
         vidaAtual--;
       } else if (vidaAtual < vidaTotal) {
-        bloco.classList.add('ativo');
+        bloco.classList.add('ativo_vida');
         vidaAtual++;
       }
 
       vidaTotalh1.innerText = `Vida atual: ${vidaAtual}/${vidaTotal} (vigor ×3)`;
     });
 
-    barra.appendChild(bloco);
+    barraDeVida.appendChild(bloco);
   }
 
   vidaTotalh1.innerText = `Vida atual: ${vidaAtual}/${vidaTotal} (vigor ×3)`;
 }
 
+
+function verificarTotalCompostura(total, atual) {
+  console.log('Estou aqui')
+  barraDeCompostura.innerHTML = '';
+
+  composturaTotal = total;
+  composturaAtual = atual;
+
+  for (let i = 0; i < total; i++) {
+    const bloco = document.createElement('div');
+    bloco.classList.add('ponto_compostura');
+
+    if (i < atual) {
+      bloco.classList.add('ativo_compostura');
+    }
+
+    // Torna cada bloco clicável
+    bloco.addEventListener('click', () => {
+      if (bloco.classList.contains('ativo_compostura')) {
+        bloco.classList.remove('ativo_compostura');
+        composturaAtual--;
+      } else if (composturaAtual < composturaTotal) {
+        bloco.classList.add('ativo_compostura');
+        composturaAtual++;
+      }
+
+      composturaTotalh1.innerText = `Compostura Atual: ${composturaAtual}/${composturaTotal} (Vontade ×3)`;
+    });
+
+    barraDeCompostura.appendChild(bloco);
+  }
+
+  composturaTotalh1.innerText = `Compostura atual: ${composturaAtual}/${composturaTotal} (Vontade ×3)`;
+}
 
 
 initFicha.addEventListener('click', () => {
@@ -195,9 +239,14 @@ inputsGrad.forEach(input => {
 
         valoresAnterioresGrad.set(input, novoValor);
         let totalPontosSaude = parseInt(vigorInput[0].value) * 3;
-        let saudeAtual = totalPontosSaude;
         if (totalPontosSaude != vidaAtualAntiga) {
-          verificarTotalSaude(totalPontosSaude, totalPontosSaude); // vida cheia
+          verificarTotalSaude(totalPontosSaude, totalPontosSaude); // vida cheia,
+        }
+
+
+        let totalPontosCompostura = parseInt(vontadeInput[0].value) * 3;
+        if (totalPontosCompostura != composturaAtualAntiga){
+          verificarTotalCompostura(totalPontosCompostura, composturaAtual);
         }
 
 
