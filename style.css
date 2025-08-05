@@ -13,6 +13,9 @@ body {
     width: 100%;
     height: 100%;
     justify-content: center;
+    background-color: black;
+    background-image: url('https://www.transparenttextures.com/patterns/dark-denim-3.png'); /* textura medieval leve */
+    background-repeat: repeat;
 }
 
 .ficha {
@@ -52,6 +55,7 @@ body {
     font-weight: bold;
     ;
 }
+
 header {
     display: flex;
     height: 18vh;
@@ -131,37 +135,51 @@ input {
 
 .notacoes_de_atributos {
     width: 100%;
-    border: 1px solid black;
+    border: 2px solid #3a3a3a;
+    background: #1e1e1e;
+    color: #ddd;
+    font-family: 'Cinzel', serif;
 }
 
 .atributos_father {
-    border: 1px solid black;
+    border: 2px solid #3a3a3a;
     display: flex;
     flex-direction: column;
+    background: #2a2a2a;
+    padding: 5px;
 }
 
 .atributos {
     display: flex;
 }
 
+.atributos button {
+    font-family: 'Cinzel', serif;
+    background-color: #3a3a3a;
+    color: #eee;
+    border: 1px solid #555;
+    transition: 0.3s;
+}
+
 .atributos button:hover {
-    transition: 0.5s;
     cursor: pointer;
-    background-color: beige;
+    background-color: #5c3b1e;
+    color: #fff;
+    border-color: #7a4a26;
 }
 
 .graduacoes,
 .habilidades,
 .especialidades {
     display: flex;
-    border-right: 1px solid black;
-    border-bottom: 1px solid black;
+    border-right: 1px solid #444;
+    border-bottom: 1px solid #444;
     justify-content: center;
     align-items: center;
     text-align: center;
     flex-direction: row;
-    
-
+    background-color: #2f2f2f;
+    color: #ccc;
 }
 
 .graduacoes {
@@ -172,6 +190,10 @@ input {
     width: 4vw;
     text-align: center;
     font-weight: bold;
+    font-family: 'Cinzel', serif;
+    background: #1e1e1e;
+    color: #fff;
+    border: 1px solid #555;
 }
 
 .habilidades {
@@ -184,15 +206,17 @@ input {
     text-align: center;
     font-weight: bold;
     font-family: 'Cinzel', serif;
+    background-color: #3a3a3a;
+    color: #eee;
+    border: 1px solid #555;
 }
 
 .especialidades {
-    display: flex;
     width: 60%;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: left;
-    
+    padding-left: 5px;
 }
 
 .especialidades ul {
@@ -202,19 +226,26 @@ input {
 }
 
 .especialidades ul li {
-    border: 1px solid black;
-    background-color: rgba(211, 211, 211, 0.527);
+    border: 1px solid #555;
+    background-color: rgba(90, 90, 90, 0.5);
+    color: #eee;
+    font-family: 'Cinzel', serif;
+    padding: 3px 6px;
+    margin: 2px;
+    border-radius: 3px;
 }
 
 .especialidades label {
-    font-size: 3vh;
-    background: none;
-    color: black;
-    
+    font-size: 2.5vh;
+    color: #ccc;
+    font-family: 'Cinzel', serif;
 }
 
 .especialidades input {
     width: 2vw;
+    background-color: #1e1e1e;
+    color: #fff;
+    border: 1px solid #555;
 }
 
 .especialida_unica {
@@ -222,13 +253,20 @@ input {
     align-items: center;
 }
 
-.especialida_unica label:hover{
-    transition: 1s;
-    color: red;
+.especialida_unica label:hover {
+    transition: 0.5s;
+    color: #a4161a;
 }
+
 #idiomaInput {
     width: 100%;
+    background: #2a2a2a;
+    color: #ddd;
+    border: 1px solid #444;
+    padding: 3px;
+    font-family: 'Cinzel', serif;
 }
+
 
 .notacoes_corporais {
     display: flex;
@@ -236,7 +274,7 @@ input {
     width: 50%;
 }
 
-.intriga{
+.intriga {
     display: flex;
     align-items: center;
     text-align: center;
@@ -248,16 +286,17 @@ input {
     border-bottom: 1px solid black;
 }
 
-.intriga input, .container_combate input{
+.intriga input,
+.container_combate input {
     background-color: white;
     border: 1px solid black;
     color: black;
-    width: 3vw;
+    width: 4%;
     text-align: center;
     letter-spacing: none;
-    }
+}
 
-.container_intriga{
+.container_intriga {
     display: flex;
     width: 100%;
     flex-direction: row;
@@ -265,13 +304,14 @@ input {
     justify-content: space-evenly;
 }
 
-.defesa_intriga_father, .compostura_father {
+.defesa_intriga_father,
+.compostura_father {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.combate{
+.combate {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -280,13 +320,74 @@ input {
 
 }
 
-.container_combate{
+.container_combate {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-evenly;
     text-align: center;
     width: 100%;
 }
+
+.saude_father {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    border-bottom: 1px solid #3a3a3a;
+    border-top: 1px solid #3a3a3a;
+    /* textura medieval */
+    color: #000000;
+    font-family: "Cinzel", serif;
+    padding: 10px;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+
+}
+
+.barra-container {
+    display: flex;
+    gap: 6px;
+    margin: 15px 0;
+    flex-wrap: wrap;
+}
+
+.ponto {
+    width: 28px;
+    height: 28px;
+    background: #5e5e5e;
+    background-image: url('https://static.vecteezy.com/system/resources/previews/018/719/301/non_2x/broken-heart-symbol-on-transparent-background-free-png.png');
+    background-size: contain;
+    background-position: center;
+    border: none;
+    border: 2px solid #2a2a2a;
+    box-shadow: inset 0 0 5px #111;
+    transition: background-color 0.3s, transform 0.1s;
+    clip-path: polygon(0 0, 90% 0, 100% 10%, 100% 100%, 10% 100%, 0 90%);
+}
+
+.ponto:hover {
+    background-color: #7e1111;
+    cursor: pointer;
+    transform: scale(1.1);
+    background-image: url('https://imagepng.org/coracao/coracao-1/');
+    background-size: contain;
+    background-position: center;
+}
+
+.ponto.ativo {
+    background-color: #a4161a;
+    border-color: #440000;
+    background-image: url('https://imagepng.org/coracao/coracao-1/');
+    background-size: contain;
+    background-position: center;
+}
+
+.ponto.ativo:hover{
+    background-image: url('https://static.vecteezy.com/system/resources/previews/018/719/301/non_2x/broken-heart-symbol-on-transparent-background-free-png.png');
+    background-size: contain;
+    background-position: center;
+}
+
 
 /* .pop_up {
     display: flex;
@@ -355,81 +456,81 @@ input {
 /* Histórico */
 
 #historico {
-  background: url('fundo-pergaminho.jpg') no-repeat center center;
-  background-size: cover;
-  padding: 20px;
-  font-family: 'Garamond', serif;
-  color: #3b1f08;
+    background: url('fundo-pergaminho.jpg') no-repeat center center;
+    background-size: cover;
+    padding: 20px;
+    font-family: 'Garamond', serif;
+    color: #3b1f08;
 }
 
 .historico-ficha {
-  max-width: 1000px;
-  margin: 0 auto;
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
 .linha {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-bottom: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 10px;
 }
 
 .campo {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 .campo input,
 .campo textarea {
-  margin-top: 0.5vh;
-  margin-bottom: 0,5vh;
-  padding: 5px;
-  border: 1px solid #a16938;
-  background-color: #fffdf5;
-  font-family: 'Garamond', serif;
-  color: #3b1f08;
+    margin-top: 0.5vh;
+    margin-bottom: 0, 5vh;
+    padding: 5px;
+    border: 1px solid #a16938;
+    background-color: #fffdf5;
+    font-family: 'Garamond', serif;
+    color: #3b1f08;
 }
 
 .campo textarea {
-  resize: vertical;
-  margin-top: 0.5vh;
-  margin-bottom: 0,5vh;
+    resize: vertical;
+    margin-top: 0.5vh;
+    margin-bottom: 0, 5vh;
 }
 
-.campo label{
+.campo label {
     text-align: center;
 }
 
 .campo.grande {
-  flex: 1 1 48%;
+    flex: 1 1 48%;
 }
 
 .secao {
-  border: 2px solid #5c2e00;
-  padding: 10px;
-  margin-bottom: 10px;
-  background-color: rgba(255, 248, 220, 0.9);
+    border: 2px solid #5c2e00;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: rgba(255, 248, 220, 0.9);
 }
 
 .secao legend {
-  background-color: #5c2e00;
-  color: #f5e0b9;
-  padding: 5px 10px;
-  font-variant: small-caps;
-  font-weight: bold;
+    background-color: #5c2e00;
+    color: #f5e0b9;
+    padding: 5px 10px;
+    font-variant: small-caps;
+    font-weight: bold;
 }
 
 .brasao {
-  text-align: center;
+    text-align: center;
 }
 
 .brasao-espaco {
-  border: 2px dashed #5c2e00;
-  height: 180px;
-  margin-top: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 24px;
+    border: 2px dashed #5c2e00;
+    height: 180px;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
 }

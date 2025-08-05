@@ -115,8 +115,4 @@ export function Habilidades() {
         }
     }
 
-    this.retornaNome = function () {
-        return 'Joaquim';
-    }
-
 }

@@ -55,14 +55,21 @@ const aleatorizarPersonalidadeBtn = document.querySelector('#aleatorizar-persona
 let xpInputGrad = document.querySelector('#xp_grad');
 let xpInputEsp = document.querySelector('#xp_esp');
 const inputEsp = document.querySelectorAll('.especialida_unica');
-const defesaIntriga = document.querySelector('.defesa_intriga');
-const composturaIntriga = document.querySelector('.compostura_intriga');
+const barra = document.getElementById('barraDeVida');
 
 // Intriga Soma
 const statusInput = document.getElementsByName("Status");
 const percepcaoInput = document.getElementsByName("Percepção");
 const astuciaInput = document.getElementsByName("Astúcia");
 const vontadeInput = document.getElementsByName("Vontade");
+
+// Saude
+const vigorInput = document.getElementsByName('Vigor');
+let vidaTotalh1 = document.getElementById('vidaTotalh1')
+let vidaAtualAntiga;
+
+let vidaTotal = 0;
+let vidaAtual = 0;
 
 const valoresAnterioresGrad = new Map();
 const valoresAnterioresEsp = new Map();
@@ -88,13 +95,54 @@ function podeIniciar() {
     inputsGrad.forEach(input => {
       input.disabled = false;
     });
+    let totalPontosSaude = parseInt(vigorInput[0].value) * 3;
+    console.log(totalPontosSaude)
+    let saudeAtual = totalPontosSaude;
+    vidaAtualAntiga = totalPontosSaude;
+    verificarTotalSaude(totalPontosSaude, saudeAtual);
+    vidaTotalh1.innerText = `A sua saúde está forjada em aço e sangue: ${totalPontosSaude} pontos de vida (vigor ×3)`;
 
 
-    defesaIntriga.value = parseInt(statusInput[0].value) + parseInt(percepcaoInput[0].value) + parseInt(astuciaInput[0].value);
-    composturaIntriga.value = parseInt(vontadeInput[0].value) * 3; 
+
   }
 
 }
+
+
+function verificarTotalSaude(total, atual) {
+  barra.innerHTML = '';
+
+  vidaTotal = total;
+  vidaAtual = atual;
+
+  for (let i = 0; i < total; i++) {
+    const bloco = document.createElement('div');
+    bloco.classList.add('ponto');
+
+    if (i < atual) {
+      bloco.classList.add('ativo');
+    }
+
+    // Torna cada bloco clicável
+    bloco.addEventListener('click', () => {
+      if (bloco.classList.contains('ativo')) {
+        bloco.classList.remove('ativo');
+        vidaAtual--;
+      } else if (vidaAtual < vidaTotal) {
+        bloco.classList.add('ativo');
+        vidaAtual++;
+      }
+
+      vidaTotalh1.innerText = `Vida atual: ${vidaAtual}/${vidaTotal} (vigor ×3)`;
+    });
+
+    barra.appendChild(bloco);
+  }
+
+  vidaTotalh1.innerText = `Vida atual: ${vidaAtual}/${vidaTotal} (vigor ×3)`;
+}
+
+
 
 initFicha.addEventListener('click', () => {
   podeIniciar();
@@ -146,8 +194,13 @@ inputsGrad.forEach(input => {
         }
 
         valoresAnterioresGrad.set(input, novoValor);
-        defesaIntriga.value = parseInt(statusInput[0].value) + parseInt(percepcaoInput[0].value) + parseInt(astuciaInput[0].value);
-        composturaIntriga.value = parseInt(vontadeInput[0].value) * 3; 
+        let totalPontosSaude = parseInt(vigorInput[0].value) * 3;
+        let saudeAtual = totalPontosSaude;
+        if (totalPontosSaude != vidaAtualAntiga) {
+          verificarTotalSaude(totalPontosSaude, totalPontosSaude); // vida cheia
+        }
+
+
       }
 
     }

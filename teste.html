@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Defesa de Intriga</title>
+  <style>
+    .barra-container {
+      display: flex;
+      gap: 5px;
+      margin: 20px;
+    }
+
+    .ponto {
+      width: 30px;
+      height: 30px;
+      background-color: #ccc;
+      border-radius: 4px;
+      transition: background-color 0.3s;
+    }
+
+    .ponto.ativo {
+      background-color: #4CAF50; /* Verde para pontos ativos */
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Defesa de Intriga</h2>
+  <div class="barra-container" id="barraDefesa"></div>
+
+  <script>
+    const pontosAtuais = 6; // Altere esse valor conforme necessário
+    const totalPontos = 10;
+
+    const barra = document.getElementById("barraDefesa");
+
+    for (let i = 0; i < totalPontos; i++) {
+      const bloco = document.createElement("div");
+      bloco.classList.add("ponto");
+      if (i < pontosAtuais) {
+        bloco.classList.add("ativo");
+      }
+      barra.appendChild(bloco);
+    }
+  </script>
+
+</body>
+</html>
