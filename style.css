@@ -271,7 +271,8 @@ input {
 .notacoes_corporais {
     display: flex;
     flex-direction: column;
-    width: 50%;
+    width: 40%;
+    height: 100%;
 }
 
 .intriga {
@@ -279,11 +280,13 @@ input {
     align-items: center;
     text-align: center;
     width: 100%;
-    height: 10%;
+    height: auto;
     flex-direction: column;
-    font-family: 'Garamond', serif;
     letter-spacing: 1px;
     border-bottom: 1px solid black;
+    font-family: "Cinzel", serif;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
 }
 
 .intriga input,
@@ -296,28 +299,11 @@ input {
     letter-spacing: none;
 }
 
-.container_intriga {
-    display: flex;
-    width: 100%;
-    flex-direction: row;
-    margin-top: 1vh;
-    justify-content: center;
-}
-
 .defesa_intriga_father,
 .compostura_father {
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-.combate {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-family: 'Garamond', serif;
-    letter-spacing: 1px;
-
 }
 
 .container_combate {
@@ -338,7 +324,6 @@ input {
     /* textura medieval */
     color: #000000;
     font-family: "Cinzel", serif;
-    padding: 10px;
     margin-top: 1vh;
     margin-bottom: 1vh;
 
@@ -347,8 +332,50 @@ input {
 .barra-container {
     display: flex;
     gap: 6px;
-    margin: 15px 0;
     flex-wrap: wrap;
+}
+
+.ponto_compostura {
+    width: 2vw;
+    height: 4vh;
+    background: #5e5e5e;
+    background-image: url('https://static.vecteezy.com/system/resources/thumbnails/022/000/084/small/hand-painted-rejected-sign-free-png.png');
+    background-size: contain;
+    background-position: center;
+    filter: saturate(60%);
+    border: 2px solid #2a2a2a;
+    box-shadow: inset 0 0 5px #111;
+    transition: background-color 0.3s, transform 0.1s;
+    clip-path: polygon(0 0, 90% 0, 100% 10%, 100% 100%, 10% 100%, 0 90%);
+}
+
+.ponto_compostura:hover {
+    background-color: #7e1111;
+    cursor: pointer;
+    transform: scale(1.1);
+    filter: saturate(100%);
+}
+
+.ponto_compostura.ativo_compostura {
+    background-color: #a4161a;
+    border-color: #440000;
+    background-image: url('https://cdn-icons-png.flaticon.com/512/251/251255.png');
+    background-size: contain;
+    background-position: center;
+    filter: saturate(100%);
+}
+
+.ponto_compostura.ativo_compostura:hover{
+    filter: saturate(30%);
+    background-image: url('https://static.vecteezy.com/system/resources/thumbnails/022/000/084/small/hand-painted-rejected-sign-free-png.png');
+}
+
+.combate {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Garamond', serif;
+    letter-spacing: 1px;
 }
 
 .ponto_vida {
@@ -392,41 +419,7 @@ input {
     filter: saturate(60%);
 }
 
-.ponto_compostura {
-    width: 28px;
-    height: 28px;
-    background: #5e5e5e;
-    background-image: url('https://static.vecteezy.com/system/resources/thumbnails/022/000/084/small/hand-painted-rejected-sign-free-png.png');
-    background-size: contain;
-    background-position: center;
-    filter: saturate(60%);
-    border: none;
-    border: 2px solid #2a2a2a;
-    box-shadow: inset 0 0 5px #111;
-    transition: background-color 0.3s, transform 0.1s;
-    clip-path: polygon(0 0, 90% 0, 100% 10%, 100% 100%, 10% 100%, 0 90%);
-}
 
-.ponto_compostura:hover {
-    background-color: #7e1111;
-    cursor: pointer;
-    transform: scale(1.1);
-    filter: saturate(100%);
-}
-
-.ponto_compostura.ativo_compostura {
-    background-color: #a4161a;
-    border-color: #440000;
-    background-image: url('https://cdn-icons-png.flaticon.com/512/251/251255.png');
-    background-size: contain;
-    background-position: center;
-    filter: saturate(100%);
-}
-
-.ponto_compostura.ativo_compostura:hover{
-    filter: saturate(30%);
-    background-image: url('https://static.vecteezy.com/system/resources/thumbnails/022/000/084/small/hand-painted-rejected-sign-free-png.png');
-}
 
 /* .pop_up {
     display: flex;

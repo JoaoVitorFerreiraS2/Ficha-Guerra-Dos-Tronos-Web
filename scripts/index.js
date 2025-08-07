@@ -1,13 +1,12 @@
 // js/index.js
-import {
-  Habilidades
-} from './habilidades/habilidades.js';
-
-import {
-  aleatorizarPersonalidade
-} from './historico/personalida-aleatorizar.js';
+import {Habilidades} from './habilidades/habilidades.js';
+import {aleatorizarPersonalidade} from './historico/personalida-aleatorizar.js';
+import {Dados} from './Dados/Dados.js'
 
 const habilidadesObj = new Habilidades();
+const dados = new Dados();
+
+
 
 // Pega elementos do HTML
 // Abas
@@ -57,24 +56,23 @@ let xpInputEsp = document.querySelector('#xp_esp');
 const inputEsp = document.querySelectorAll('.especialida_unica');
 const barraDeVida = document.getElementById('barraDeVida');
 const barraDeCompostura = document.getElementById('barraDeCompostura');
+const defesaComposturaValor = document.getElementById('defesaComposturaValor')
 
 // Intriga Soma
-const statusInput = document.getElementsByName("Status");
-const percepcaoInput = document.getElementsByName("Percepção");
-const astuciaInput = document.getElementsByName("Astúcia");
-const vontadeInput = document.getElementsByName("Vontade");
+const statusInput = document.getElementById("statusGrad");
+const percepcaoInput = document.getElementById("percepcaoGrad");
+const astuciaInput = document.getElementById("astuciaGrad");
+const vontadeInput = document.getElementById("vontadeGrad");
 const composturaTotalh1 = document.getElementById("composturaTotalh1")
 
 let composturaAtualAntiga;
 let composturaTotal = 0
 let composturaAtual = 0
 
-
-
-
 // Saude
-const vigorInput = document.getElementsByName('Vigor');
+const vigorInput = document.getElementById('vigorGrad');
 let vidaTotalh1 = document.getElementById('vidaTotalh1')
+
 let vidaAtualAntiga;
 
 let vidaTotal = 0;
@@ -104,22 +102,29 @@ function podeIniciar() {
     inputsGrad.forEach(input => {
       input.disabled = false;
     });
-    let totalPontosSaude = parseInt(vigorInput[0].value) * 3;
+    let totalPontosSaude = parseInt(vigorInput.value) * 3;
     let saudeAtual = totalPontosSaude;
     vidaAtualAntiga = totalPontosSaude;
     verificarTotalSaude(totalPontosSaude, saudeAtual);
 
-    let totalPontosCompostura = parseInt(vontadeInput[0].value) * 3;
+    let totalPontosCompostura = parseInt(vontadeInput.value) * 3;
     composturaAtual = totalPontosCompostura
     composturaAtualAntiga = totalPontosCompostura;
     verificarTotalCompostura(totalPontosCompostura, composturaAtual);
+
+    defesaComposturaValor.value = astuciaInput.valueAsNumber + percepcaoInput.valueAsNumber + statusInput.valueAsNumber
 
   }
 
 }
 
+// Chamada de entrada
+verificarTotalSaude()
+verificarTotalCompostura()
 
-function verificarTotalSaude(total, atual) {
+
+
+function verificarTotalSaude(total = 3, atual = 3) {
   barraDeVida.innerHTML = '';
 
   vidaTotal = total;
@@ -152,13 +157,11 @@ function verificarTotalSaude(total, atual) {
   vidaTotalh1.innerText = `Vida atual: ${vidaAtual}/${vidaTotal} (vigor ×3)`;
 }
 
-
-function verificarTotalCompostura(total, atual) {
-  console.log('Estou aqui')
-  barraDeCompostura.innerHTML = '';
+function verificarTotalCompostura(total = 3, atual = 3) {
 
   composturaTotal = total;
   composturaAtual = atual;
+  barraDeCompostura.innerHTML = '';
 
   for (let i = 0; i < total; i++) {
     const bloco = document.createElement('div');
@@ -238,14 +241,15 @@ inputsGrad.forEach(input => {
         }
 
         valoresAnterioresGrad.set(input, novoValor);
-        let totalPontosSaude = parseInt(vigorInput[0].value) * 3;
+
+        let totalPontosSaude = parseInt(vigorInput.value) * 3;
         if (totalPontosSaude != vidaAtualAntiga) {
           verificarTotalSaude(totalPontosSaude, totalPontosSaude); // vida cheia,
         }
 
 
-        let totalPontosCompostura = parseInt(vontadeInput[0].value) * 3;
-        if (totalPontosCompostura != composturaAtualAntiga){
+        let totalPontosCompostura = parseInt(vontadeInput.value) * 3;
+        if (totalPontosCompostura != composturaAtualAntiga) {
           verificarTotalCompostura(totalPontosCompostura, composturaAtual);
         }
 
