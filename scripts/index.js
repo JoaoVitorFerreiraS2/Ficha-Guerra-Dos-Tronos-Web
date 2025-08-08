@@ -256,6 +256,7 @@ inputsGrad.forEach(input => {
         }
 
         valoresAnterioresGrad.set(input, novoValor);
+        defesaComposturaValor.value = astuciaInput.valueAsNumber + percepcaoInput.valueAsNumber + statusInput.valueAsNumber
 
         let totalPontosSaude = parseInt(vigorInput.value) * 3;
         if (totalPontosSaude != vidaAtualAntiga) {
