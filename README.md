@@ -1,11 +1,5 @@
 # Ficha Guerra Dos Tronos
 
-![GitHub repo size](https://img.shields.io/github/repo-size/JoaoVitorFerreiraS2/README-template?style=for-the-badge)
-![GitHub language count](https://img.shields.io/github/languages/count/JoaoVitorFerreiraS2/README-template?style=for-the-badge)
-![GitHub forks](https://img.shields.io/github/forks/JoaoVitorFerreiraS2/README-template?style=for-the-badge)
-![Bitbucket open issues](https://img.shields.io/bitbucket/issues/JoaoVitorFerreiraS2/README-template?style=for-the-badge)
-![Bitbucket open pull requests](https://img.shields.io/bitbucket/pr-raw/JoaoVitorFerreiraS2/README-template?style=for-the-badge)
-
 > Ficha feita para os fans do sistema de Guerra dos Tronos, o tão injustiçado livro que faz a gente dar muitas risadas. Mesmo tendo muitas dores de cabeça! 
 
 ### Ajustes e melhorias
@@ -38,5 +32,4 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
         </sub>
       </a>
     </td>
-    <
 </table>
