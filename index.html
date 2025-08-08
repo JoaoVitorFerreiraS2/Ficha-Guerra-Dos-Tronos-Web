@@ -11,8 +11,10 @@
 
 <body>
 
-    <div class="popUpFather"></div> <!-- Ainda a ser criado -->
+   
+
     <section class="ficha">
+         <div class="popUpFather"></div> <!-- Ainda a ser criado -->
         <header>
             <div class="header_sun">
                 <label for="nome">Nome</label>
@@ -74,7 +76,7 @@
                                     <ul>
                                         <li>
                                             <div class="especialida_unica"><input type="number" id="acrobaciaEsp"
-                                                    name="Agilidade" value="0"><label
+                                                    name="Agilidade"><label
                                                     for="acrobaciaEsp">Acrobacia</label>
                                             </div>
                                         </li>
@@ -702,7 +704,9 @@
                             <!-- Defesa em Intriga -->
                             <div class="defesa_intriga_father">
                                 <h3>Defesa em Compostura</h3>
-                                <input type="text" name="defesaEmIntriga" id="defesaComposturaValor" style="width: 3vw; border: 1px solid black; text-align: center; font-size: 4vh;" disabled>
+                                <input type="text" name="defesaEmIntriga" id="defesaComposturaValor"
+                                    style="width: 3vw; border: 1px solid black; text-align: center; font-size: 4vh;"
+                                    disabled>
                             </div>
 
                             <!-- Compostura -->
@@ -732,96 +736,96 @@
                                 <h1 id="vidaTotalh1" style="font-size: 2vh;"></h1>
                             </div>
 
-                            </div>
                         </div>
                     </div>
-
-                </section>
-
-            </div>
-
-            <div id="historico" class="tab-content">
-                <div class="historico-ficha">
-
-                    <!-- Nome e Jogador -->
-                    <div class="linha">
-                        <div class="campo">
-                            <label for="nome">Nome</label>
-                            <input type="text" id="nome">
-                        </div>
-                        <div class="campo">
-                            <label for="jogador">Jogador</label>
-                            <input type="text" id="jogador">
-                        </div>
-                    </div>
-
-                    <!-- Aparência -->
-                    <fieldset class="secao">
-                        <legend>Aparência</legend>
-                        <div class="linha">
-                            <div class="campo"><label>Altura</label><input type="text"></div>
-                            <div class="campo"><label>Peso</label><input type="text"></div>
-                            <div class="campo"><label>Olhos</label><input type="text"></div>
-                            <div class="campo"><label>Cabelos</label><input type="text"></div>
-                        </div>
-                        <div class="campo"><label>Marcas de Nascimento</label><textarea></textarea></div>
-                        <div class="campo"><label>Detalhes</label><textarea></textarea></div>
-                    </fieldset>
-
-                    <!-- Personalidade -->
-                    <fieldset class="secao">
-                        <legend>Personalidade</legend>
-                        <button class="button_header" id="aleatorizar-personalidade"
-                            style="margin-bottom: 2vh;">Aleatorizar</button>
-                        <div class="linha">
-                            <div class="campo"><label>Objetivo</label><input id="objetivoHi" type="text"></div>
-                            <div class="campo"><label>Motivação</label><input id="motivacaoHi" type="text"></div>
-                            <div class="campo"><label>Virtude</label><input id="virtudeHi" type="text"></div>
-                            <div class="campo"><label>Vício</label><input id="vicioHi" type="text"></div>
-                        </div>
-                    </fieldset>
-
-                    <!-- Juramentos, Obrigações, Aliados, Inimigos -->
-                    <div class="linha">
-                        <div class="campo grande"><label>Juramentos</label><textarea></textarea></div>
-                        <div class="campo grande"><label>Obrigações</label><textarea></textarea></div>
-                    </div>
-                    <div class="linha">
-                        <div class="campo grande"><label>Aliados</label><textarea></textarea></div>
-                        <div class="campo grande"><label>Inimigos</label><textarea></textarea></div>
-                    </div>
-
-                    <!-- História -->
-                    <div class="campo">
-                        <label>História</label>
-                        <textarea rows="6"></textarea>
-                    </div>
-
-                    <!-- Dinheiro e Experiência -->
-                    <div class="linha">
-                        <div class="campo"><label>Dinheiro</label><input type="text"></div>
-                    </div>
-
-                    <!-- Posses -->
-                    <div class="campo">
-                        <label>Posses</label>
-                        <textarea rows="4"></textarea>
-                    </div>
-
-                    <!-- Brasão e Lema -->
-                    <fieldset class="secao brasao">
-                        <legend>Brasão & Lema</legend>
-                        <div class="brasao-espaco">🛡️ (espaço reservado para o escudo)</div>
-                    </fieldset>
-                </div>
-            </div>
-
             </div>
 
         </section>
 
+        </div>
+
+        <div id="historico" class="tab-content">
+            <div class="historico-ficha">
+
+                <!-- Nome e Jogador -->
+                <div class="linha">
+                    <div class="campo">
+                        <label for="nome">Nome</label>
+                        <input type="text" id="nome">
+                    </div>
+                    <div class="campo">
+                        <label for="jogador">Jogador</label>
+                        <input type="text" id="jogador">
+                    </div>
+                </div>
+
+                <!-- Aparência -->
+                <fieldset class="secao">
+                    <legend>Aparência</legend>
+                    <div class="linha">
+                        <div class="campo"><label>Altura</label><input type="text"></div>
+                        <div class="campo"><label>Peso</label><input type="text"></div>
+                        <div class="campo"><label>Olhos</label><input type="text"></div>
+                        <div class="campo"><label>Cabelos</label><input type="text"></div>
+                    </div>
+                    <div class="campo"><label>Marcas de Nascimento</label><textarea></textarea></div>
+                    <div class="campo"><label>Detalhes</label><textarea></textarea></div>
+                </fieldset>
+
+                <!-- Personalidade -->
+                <fieldset class="secao">
+                    <legend>Personalidade</legend>
+                    <button class="button_header" id="aleatorizar-personalidade"
+                        style="margin-bottom: 2vh;">Aleatorizar</button>
+                    <div class="linha">
+                        <div class="campo"><label>Objetivo</label><input id="objetivoHi" type="text"></div>
+                        <div class="campo"><label>Motivação</label><input id="motivacaoHi" type="text"></div>
+                        <div class="campo"><label>Virtude</label><input id="virtudeHi" type="text"></div>
+                        <div class="campo"><label>Vício</label><input id="vicioHi" type="text"></div>
+                    </div>
+                </fieldset>
+
+                <!-- Juramentos, Obrigações, Aliados, Inimigos -->
+                <div class="linha">
+                    <div class="campo grande"><label>Juramentos</label><textarea></textarea></div>
+                    <div class="campo grande"><label>Obrigações</label><textarea></textarea></div>
+                </div>
+                <div class="linha">
+                    <div class="campo grande"><label>Aliados</label><textarea></textarea></div>
+                    <div class="campo grande"><label>Inimigos</label><textarea></textarea></div>
+                </div>
+
+                <!-- História -->
+                <div class="campo">
+                    <label>História</label>
+                    <textarea rows="6"></textarea>
+                </div>
+
+                <!-- Dinheiro e Experiência -->
+                <div class="linha">
+                    <div class="campo"><label>Dinheiro</label><input type="text"></div>
+                </div>
+
+                <!-- Posses -->
+                <div class="campo">
+                    <label>Posses</label>
+                    <textarea rows="4"></textarea>
+                </div>
+
+                <!-- Brasão e Lema -->
+                <fieldset class="secao brasao">
+                    <legend>Brasão & Lema</legend>
+                    <div class="brasao-espaco">🛡️ (espaço reservado para o escudo)</div>
+                </fieldset>
+            </div>
+        </div>
 
         </div>
+
+    </section>
+
+
+    </div>
     </section>
     </section>
 

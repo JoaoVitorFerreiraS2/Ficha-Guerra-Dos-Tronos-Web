@@ -28,7 +28,6 @@ export function Habilidades() {
     }
 
     this.getCustoEsp = function (valor) {
-        console.log(`Valor recebido: ${valor}`);
         const valorNum = Number(valor);
 
         if (valorNum <= 3) {

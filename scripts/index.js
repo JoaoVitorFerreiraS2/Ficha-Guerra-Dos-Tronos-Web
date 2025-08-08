@@ -1,11 +1,12 @@
 // js/index.js
-import {Habilidades} from './habilidades/habilidades.js';
-import {aleatorizarPersonalidade} from './historico/personalida-aleatorizar.js';
-import {Dados} from './Dados/Dados.js'
+import { Habilidades } from './habilidades/habilidades.js';
+import { aleatorizarPersonalidade } from './historico/personalida-aleatorizar.js';
+import { Dados } from './Dados/Dados.js';
+import { RolarDados } from './habilidades/DadosParaRolar.js';
 
 const habilidadesObj = new Habilidades();
 const dados = new Dados();
-
+const rolarDados = new RolarDados();
 
 
 // Pega elementos do HTML
@@ -53,10 +54,17 @@ const salvarBtn = document.querySelector('#salvarBtn');
 const aleatorizarPersonalidadeBtn = document.querySelector('#aleatorizar-personalidade');
 let xpInputGrad = document.querySelector('#xp_grad');
 let xpInputEsp = document.querySelector('#xp_esp');
-const inputEsp = document.querySelectorAll('.especialida_unica');
+const inputEsp = document.querySelectorAll('.especialida_unica input');
 const barraDeVida = document.getElementById('barraDeVida');
 const barraDeCompostura = document.getElementById('barraDeCompostura');
-const defesaComposturaValor = document.getElementById('defesaComposturaValor')
+const defesaComposturaValor = document.getElementById('defesaComposturaValor');
+
+// PopUp
+const popUp = document.querySelector('.popUpFather');
+
+// Clique nas habilidades
+
+const botaoDado = document.querySelectorAll('.botaoDado');
 
 // Intriga Soma
 const statusInput = document.getElementById("statusGrad");
@@ -94,6 +102,7 @@ function podeIniciar() {
   else {
     habilidadesObj.adicionarValorPad(inputsGrad, valorPadrao);
     const idadeIdentificador = habilidadesObj.xpIdadeInicial(parseInt(idadeInput.value), xpInputGrad, xpInputEsp);
+    const especialidadesInput = document.querySelectorAll('.especialidades input');
     console.log('Idade Identificador:', idadeIdentificador);
 
     initFicha.innerHTML = 'Reiniciar Ficha';
@@ -102,6 +111,12 @@ function podeIniciar() {
     inputsGrad.forEach(input => {
       input.disabled = false;
     });
+    especialidadesInput.forEach(input => {
+      input.value = 0
+    })
+
+
+
     let totalPontosSaude = parseInt(vigorInput.value) * 3;
     let saudeAtual = totalPontosSaude;
     vidaAtualAntiga = totalPontosSaude;
@@ -252,12 +267,8 @@ inputsGrad.forEach(input => {
         if (totalPontosCompostura != composturaAtualAntiga) {
           verificarTotalCompostura(totalPontosCompostura, composturaAtual);
         }
-
-
       }
-
     }
-
   });
 });
 
@@ -266,32 +277,74 @@ inputEsp.forEach(input => {
   valoresAnterioresEsp.set(input, 0);
 
   input.addEventListener('input', (event) => {
-    console.log('Estou aqui')
     if (event.target.value === '') {
       // Não faz nada se o campo estiver vazio
     } else if (event.target.value < 0) {
       event.target.value = valoresAnterioresEsp.get(input);
     } else {
-      const novo = Number(event.target.value);
-      const anterior = valoresAnterioresEsp.get(input);
-      const custoNovo = habilidadesObj.getCustoEsp(novo);
-      const custoAnterior = habilidadesObj.getCustoEsp(anterior);
 
-      const diferenca = custoNovo - custoAnterior;
+      const container = event.target.closest(".atributos")
+      const graduacao = container.querySelector('.graduacoes input');
+      console.log(input.value)
+      if (input.value > graduacao.value) {
+        alert(`Sua graduação em ${graduacao.name} é ${graduacao.value}, ou seja, suas especialidades que dependem de ${graduacao.name} só podem ir até ${graduacao.value}`)
+        input.value -=1;
+      } else {
+        const novo = Number(event.target.value);
+        const anterior = valoresAnterioresEsp.get(input);
+        const custoNovo = habilidadesObj.getCustoEsp(novo);
+        const custoAnterior = habilidadesObj.getCustoEsp(anterior);
 
-      xpInputEsp.value = Number(xpInputEsp.value) - diferenca;
+        const diferenca = custoNovo - custoAnterior;
 
-      if (xpInputEsp.value < 0) {
-        alert('Experiência insuficiente. Valor revertido.');
-        event.target.value = valoresAnterioresEsp.get(input);
-        xpInputEsp.value = Number(xpInputEsp.value) + diferenca;
-        return;
+        xpInputEsp.value = Number(xpInputEsp.value) - diferenca;
+
+        if (xpInputEsp.value < 0) {
+          alert('Experiência insuficiente. Valor revertido.');
+          event.target.value = valoresAnterioresEsp.get(input);
+          xpInputEsp.value = Number(xpInputEsp.value) + diferenca;
+          return;
+        }
+
+        valoresAnterioresEsp.set(input, novo);
       }
-
-      valoresAnterioresEsp.set(input, novo);
     }
   });
 });
+
+botaoDado.forEach(button => {
+  button.addEventListener('click', (event) => {
+    const nameButton = event.target.innerHTML;
+    const container = event.target.closest(".atributos")
+
+    const graduacao = container.querySelector('.graduacoes input').value;
+
+    const especialidadeInput = container.querySelectorAll('.especialidades input');
+    const especialidadeNome = container.querySelectorAll('.especialidades label')
+    const especialidadeUnidade = [];
+
+    for (let i = 0; i < especialidadeInput.length; i++) {
+      const nome = especialidadeInput[i].nextElementSibling.innerText;
+      const valor = parseInt(especialidadeInput[i].value) || 0;
+
+      especialidadeUnidade.push({ Nome: nome, Valor: valor });
+    }
+    console.log(especialidadeUnidade)
+
+
+
+    popUp.innerHTML = rolarDados.informacoes(true, nameButton, graduacao, especialidadeUnidade);
+
+    const botao_fechar = document.querySelector("#botao_fechar")
+
+    botao_fechar.addEventListener('click', (event) => {
+      popUp.innerHTML = rolarDados.informacoes('', false)
+    })
+
+  })
+})
+
+
 
 // Historico
 

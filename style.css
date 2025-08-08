@@ -410,6 +410,7 @@ input {
     filter: saturate(100%);
     background-size: contain;
     background-position: center;
+    
 }
 
 .ponto_vida.ativo_vida:hover{
@@ -420,8 +421,7 @@ input {
 }
 
 
-
-/* .pop_up {
+.pop_up {
     display: flex;
     position: fixed;
     width: 100%;
@@ -429,6 +429,7 @@ input {
     z-index: 9999;
     align-items: center;
     margin-left: 5vw;
+    
 
 }
 
@@ -442,6 +443,8 @@ input {
     width: 40vw;
     background-color: rgb(254, 254, 254);
     border: 10px solid black;
+    padding: 2vw;
+    font-family: "Cinzel", serif;
 }
 
 .pop_up_content h1 {
@@ -456,6 +459,7 @@ input {
     text-shadow: 1px 1px 20px rgb(195, 98, 2);
     font-weight: bold;
     font-size: 3vh;
+    margin-top: 3%;
 }
 
 .pop_up_content button {
@@ -482,7 +486,7 @@ input {
     margin-top: 2vh;
     color: rgb(196, 98, 0);
     text-decoration-color: rgb(0, 0, 0);
-} */
+}
 
 
 /* Histórico */
