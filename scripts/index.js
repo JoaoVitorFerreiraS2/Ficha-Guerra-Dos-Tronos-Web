@@ -41,6 +41,12 @@ window.addEventListener('DOMContentLoaded', () => {
     if (input.value === '') {
       input.disabled = true;
     }
+    botaoDado.forEach(botao => {
+      botao.disabled = true;
+    })
+    inputEsp.forEach(input => {
+      input.disabled = true;
+    })
   });
 });
 
@@ -111,9 +117,18 @@ function podeIniciar() {
     inputsGrad.forEach(input => {
       input.disabled = false;
     });
+
+    botaoDado.forEach(botao => {
+      botao.disabled = false;
+    })
     especialidadesInput.forEach(input => {
       input.value = 0
     })
+
+    inputEsp.forEach(input => {
+      input.disabled = false;
+    });
+
 
 
 
